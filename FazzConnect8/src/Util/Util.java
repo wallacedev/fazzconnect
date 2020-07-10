@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Model;
+package Util;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,6 +28,20 @@ public abstract class Util {
             ex.printStackTrace();
         }
 		return shortName;
+	}
+	
+	public static String quantityToSplit(String sku) {
+		String quantity = "";
+		try (InputStream input = new FileInputStream("split.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            quantity = prop.getProperty(sku);
+            input.close();
+        } catch (IOException ex) {
+        	System.out.println("Exception in the function 'getShortName()'."); 
+            ex.printStackTrace();
+        }
+		return quantity;
 	}
 	
 //	public static boolean insertNewShortName(String SKU, String shortName) {

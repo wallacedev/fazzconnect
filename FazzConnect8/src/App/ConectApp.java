@@ -1,13 +1,20 @@
-package Model;
+package App;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
+
+import Model.AmazonFile;
+import Model.AnPostReportLine;
+import Util.Util;
 
 public class ConectApp {
 
@@ -139,31 +146,47 @@ public class ConectApp {
 			}
 
 			StringBuffer[] sbList = new StringBuffer[batches.size()];
+			
 			int i = 0;
 			for (String batch : batches) {
-				sbList[i] = new StringBuffer();
+				HashMap<String, AnPostReportLine> reportMap = new HashMap<String, AnPostReportLine>();
 				for (AnPostReportLine anPostReportLine : anPostReportLineList) {
 					if (anPostReportLine.getBatch().equals(batch)) {
-						sbList[i].append(anPostReportLine.getIdOrder());
-						sbList[i].append(SEPARATOR);
-						sbList[i].append("");
-						sbList[i].append(SEPARATOR);
-						sbList[i].append("");
-						sbList[i].append(SEPARATOR);
-						sbList[i].append(anPostReportLine.getConvertedDate());
-						sbList[i].append(SEPARATOR);
-						sbList[i].append("Other");
-						sbList[i].append(SEPARATOR);
-						sbList[i].append(anPostReportLine.getCarrier());
-						sbList[i].append(SEPARATOR);
-						sbList[i].append(anPostReportLine.getTrackNumber());
-						sbList[i].append(SEPARATOR);
-						sbList[i].append("");
-						sbList[i].append(SEPARATOR);
-						sbList[i].append("");
-						sbList[i].append("\n");
+						if (reportMap.get(anPostReportLine.getIdOrder()) != null) {
+							AnPostReportLine temp = reportMap.get(anPostReportLine.getIdOrder());
+							temp.setTrackNumber(temp.getTrackNumber()+" "+ anPostReportLine.getTrackNumber());
+							reportMap.put(anPostReportLine.getIdOrder(), temp);
+						}else {
+							reportMap.put(anPostReportLine.getIdOrder(), anPostReportLine);
+						}
 					}
 				}
+				
+				sbList[i] = new StringBuffer();
+				Iterator<Entry<String, AnPostReportLine>> hmIterator = reportMap.entrySet().iterator(); 
+				while(hmIterator.hasNext()) {
+					Map.Entry<String, AnPostReportLine> mapElement = hmIterator.next();
+					sbList[i].append(mapElement.getValue().getIdOrder());
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append(mapElement.getValue().getConvertedDate());
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("Other");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append(mapElement.getValue().getCarrier());
+					sbList[i].append(SEPARATOR);
+					sbList[i].append(mapElement.getValue().getTrackNumber());
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("");
+					sbList[i].append("\n");
+					
+				}
+				
 				FileWriter file = new FileWriter(workDirectory+"/"+batch + ".txt");
 				file.write(title.toString());
 				file.write(sbList[i].toString());
@@ -195,8 +218,6 @@ public class ConectApp {
 		
 		for (String marketPlace : marketPlaces) {
 			
-			
-			
 			ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>();
 			
 			File path = new File(workDirectory+"/"+marketPlace+"/");
@@ -214,7 +235,13 @@ public class ConectApp {
 					myReader.nextLine();
 					while (myReader.hasNextLine()) {
 						String data = myReader.nextLine();
-						amazonFileList.add(convertLineToAmazonFile(data));
+						AmazonFile amazonFile = convertLineToAmazonFile(data);
+						ArrayList<AmazonFile> amazonFileListVerified = verifications(amazonFile);
+						if(amazonFileListVerified!=null) {
+							for (AmazonFile amazonFile2 : amazonFileListVerified) {
+								amazonFileList.add(amazonFile2);
+							}
+						}
 						// System.out.println(data);
 					}
 					myReader.close();
@@ -392,18 +419,6 @@ public class ConectApp {
 		}else {
 			amazonFile.setProductName(fields[11]);
 		}
-		//Try convert name with a short name
-//		if (Util.getShortName(amazonFile.getSku())==null) {
-//			String newShortName = insertSKU(amazonFile.getSku()); 
-//			if (newShortName!=null) {
-//				amazonFile.setProductName(newShortName);
-//			}else {
-//				amazonFile.setProductName(fields[11]);
-//			}
-//			
-//		}else {
-//			amazonFile.setProductName(Util.getShortName(amazonFile.getSku()));
-//		}
 		amazonFile.setQuantityPurchased(fields[12]);
 		amazonFile.setQuantityShipped(fields[13]);
 		amazonFile.setQuantityToShip(fields[14]);
@@ -416,31 +431,47 @@ public class ConectApp {
 		amazonFile.setShipState(fields[21]);
 		amazonFile.setShipPostalCode(fields[22]);
 		amazonFile.setShipCountry(fields[23]);
-		amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+		//amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
 		return amazonFile;
 	}
-//
-//	private static String insertSKU(String sku, String productName) {
-//		System.out.println("No shortname found for the following product:");
-//		System.out.println(productName);
-//		System.out.println("Do you want to give a  shortname for it? (y/n)");
-//		String option = null;
-//		boolean validOption = false;
-//		Scanner scanner = new Scanner(System.in);
-//		while (validOption==false) {
-//			option = scanner.nextLine();
-//			option = option.toLowerCase();
-//			if (option.equals("y") ||
-//					option.equals("yes") ||
-//					option.equals("n") ||
-//					option.equals("no")) {
-//				validOption = true;
-//			}
-//		}
-//		if (option.equals("y") || option.equals("yes")) {
-//			
-//		}
-//		
-//	}
+
+	private static ArrayList<AmazonFile> verifications(AmazonFile amazonFile) {
+		
+		ArrayList<AmazonFile> amazonFileListVerified = new ArrayList<AmazonFile>();  
+		
+		//delete registry
+		//split registry
+		amazonFileListVerified = splitOrders(amazonFile);
+		return amazonFileListVerified;
+	}
+	
+	private static ArrayList<AmazonFile> splitOrders(AmazonFile amazonFile) {
+		String split = Util.quantityToSplit(amazonFile.getSku());
+		ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>(); 
+		if(split!=null) {
+			int quantity = Integer.parseInt(split);
+			if (Integer.parseInt(amazonFile.getQuantityPurchased())>quantity) {
+				int quantityToSplit = Integer.parseInt(amazonFile.getQuantityPurchased());
+				if(quantity==0) {
+					quantityToSplit = quantityToSplit*2;
+				}
+				amazonFile.setQuantityPurchased("1");
+				amazonFile.setQuantityToShip("1");
+				amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+				for (int i = 0; i < quantityToSplit; i++) {
+					amazonFileList.add(amazonFile);
+				}
+			}
+			else {
+				amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+				amazonFileList.add(amazonFile);
+			}
+		}else {
+			amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+			amazonFileList.add(amazonFile);
+		}
+		return amazonFileList;
+	}
+	
 
 }
