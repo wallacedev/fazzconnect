@@ -457,9 +457,12 @@ public class ConectApp {
 				}
 				amazonFile.setQuantityPurchased("1");
 				amazonFile.setQuantityToShip("1");
-				amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+				String productName = amazonFile.getProductName();
 				for (int i = 0; i < quantityToSplit; i++) {
-					amazonFileList.add(amazonFile);
+					AmazonFile amazonFileTemp = (AmazonFile) amazonFile.clone();
+					amazonFileTemp.setProductName(i+1 +"/"+ quantityToSplit +  " - " +productName);
+					amazonFileTemp.setOrderItemId(amazonFileTemp.getOrderId()+i);
+					amazonFileList.add(amazonFileTemp);
 				}
 			}
 			else {

@@ -207,6 +207,44 @@ public class AmazonFile {
 		this.isSoldByAb = isSoldByAb;
 	}
 	
+	@Override
+	public Object clone() {
+	    AmazonFile amazonFile = new AmazonFile();
+	    try {
+	    	amazonFile = (AmazonFile) super.clone();
+	    } catch (CloneNotSupportedException e) {
+	        
+	    }
+	    amazonFile.orderId = this.orderId;
+    	amazonFile.orderItemId = this.orderItemId;
+    	amazonFile.purchaseDate = this.purchaseDate;
+    	amazonFile.paymentsDate = this.paymentsDate;
+    	amazonFile.reportingDate = this.reportingDate;
+    	amazonFile.promiseDate = this.promiseDate;
+    	amazonFile.daysPastPromise = this.daysPastPromise;
+    	amazonFile.buyerEmail = this.buyerEmail;
+    	amazonFile.buyerName = this.buyerName;
+    	amazonFile.buyerPhoneNumber = this.buyerPhoneNumber;
+    	amazonFile.sku = this.sku;
+    	amazonFile.productName = this.productName;
+    	amazonFile.quantityPurchased = this.quantityPurchased;
+    	amazonFile.quantityShipped = this.quantityShipped;
+    	amazonFile.quantityToShip = this.quantityToShip;
+    	amazonFile.shipServiceLevel = this.shipServiceLevel;
+    	amazonFile.recipientName = this.recipientName;
+    	amazonFile.shipAddress1 = this.shipAddress1;
+    	amazonFile.shipAddress2 = this.shipAddress2;	
+    	amazonFile.shipAddress3 = this.shipAddress3;	
+    	amazonFile.shipCity = this.shipCity;	
+    	amazonFile.shipState = this.shipState;	
+    	amazonFile.shipPostalCode = this.shipPostalCode;	
+    	amazonFile.shipCountry = this.shipCountry;	
+    	amazonFile.isBusinessOrder = this.isBusinessOrder;	
+    	amazonFile.purchaseOrderNumber = this.purchaseOrderNumber;	
+    	amazonFile.priceDesignation = this.priceDesignation;	
+    	amazonFile.isSoldByAb = this.isSoldByAb;
+	    return amazonFile;
+	}
 	
 	
 }
