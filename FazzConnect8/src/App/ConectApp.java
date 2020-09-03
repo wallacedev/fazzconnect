@@ -45,6 +45,7 @@ public class ConectApp {
 			System.out.println("1 - Convert Amazon file to AnPOst File.");
 			System.out.println("2 - Convert AnPost Repost to Amazon File.");
 			System.out.println("3 - Change work directory.");
+			System.out.println("4 - Create UPS File.");
 			System.out.println("0 - Exit.");
 			
 			Scanner scanner = new Scanner(System.in);
@@ -63,12 +64,19 @@ public class ConectApp {
 				break;
 			case 3:
 				setWorkDirectory();
+			case 4:
+				createUPSFile();
 			default:
 				break;
 			}
 		}while(option!=0);
 		
 
+	}
+
+	private static void createUPSFile() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private static void setWorkDirectory() {
