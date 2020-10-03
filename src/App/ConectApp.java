@@ -33,7 +33,8 @@ public class ConectApp {
 		marketPlaces.add("uk");
 		marketPlaces.add("ca");
 		marketPlaces.add("ups");
-		marketPlaces.add("ebay");
+		marketPlaces.add("eb");
+		marketPlaces.add("anPost");
 		//String workDirectory = new String();
 		do {
 			if (workDirectory.equals("")) {
@@ -83,9 +84,9 @@ public class ConectApp {
 
 	private static void convertEbay() {
 		// TODO Auto-generated method stub
-		EbayService ebayService = new EbayService();
-		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory(workDirectory);
-		ebayService.createAnpostFile();
+		EbayService ebayService = new EbayService(workDirectory);
+		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
+		ebayService.createAnpostFile(ebayOrders, "eb");
 		
 	}
 

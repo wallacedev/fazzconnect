@@ -26,7 +26,9 @@ public class Order {
 	private String sallesChannel;
 	private ArrayList<Product> itens;
 	
-	public Order() {}; 
+	public Order() {
+		this.itens = new ArrayList<Product>();
+	}; 
 	
 	public Order (String line) {
 		createOrderFromLine(line);

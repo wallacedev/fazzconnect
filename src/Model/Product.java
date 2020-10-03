@@ -7,6 +7,7 @@ public class Product {
 	String name;
 	String shortName;
 	String defautCarrier;
+	String quantity;
 	
 	public Product () {
 		
@@ -45,7 +46,12 @@ public class Product {
 	}
 
 	public String getShortName() {
-		return shortName;
+		if (shortName == null) {
+			return name;
+		}
+		else {
+			return shortName;
+		}
 	}
 
 	public void setShortName(String shortName) {
@@ -58,6 +64,19 @@ public class Product {
 
 	public void setDefautCarrier(String defautCarrier) {
 		this.defautCarrier = defautCarrier;
+	}
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getNameWithQuantity() {
+		return String.format("%s X %s", this.quantity, this.getShortName());
+		
 	}
 	
 	
