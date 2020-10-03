@@ -26,6 +26,10 @@ public class Order {
 	private String sallesChannel;
 	private ArrayList<Product> itens;
 	
+	public Order() {
+		this.itens = new ArrayList<Product>();
+	}; 
+	
 	public Order (String line) {
 		createOrderFromLine(line);
 	}
@@ -182,8 +186,8 @@ public class Order {
 	public ArrayList<Product> getItens() {
 		return itens;
 	}
-	public void setItens(ArrayList<Product> itens) {
-		this.itens = itens;
+	public void addItem(Product product) {
+		this.itens.add(product);
 	}
 	
 	

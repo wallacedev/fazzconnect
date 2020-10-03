@@ -14,7 +14,9 @@ import java.util.Scanner;
 
 import Model.AmazonFile;
 import Model.AnPostReportLine;
+import Model.Order;
 import Util.Util;
+import service.EbayService;
 
 public class ConectApp {
 
@@ -30,6 +32,9 @@ public class ConectApp {
 		marketPlaces.add("us");
 		marketPlaces.add("uk");
 		marketPlaces.add("ca");
+		marketPlaces.add("ups");
+		marketPlaces.add("eb");
+		marketPlaces.add("anPost");
 		//String workDirectory = new String();
 		do {
 			if (workDirectory.equals("")) {
@@ -46,6 +51,7 @@ public class ConectApp {
 			System.out.println("2 - Convert AnPost Repost to Amazon File.");
 			System.out.println("3 - Change work directory.");
 			System.out.println("4 - Create UPS File.");
+			System.out.println("5 - Convert Ebay.");
 			System.out.println("0 - Exit.");
 			
 			Scanner scanner = new Scanner(System.in);
@@ -66,12 +72,22 @@ public class ConectApp {
 				setWorkDirectory();
 			case 4:
 				createUPSFile();
+			case 5:
+				convertEbay();
 			default:
 				break;
 			}
 		}while(option!=0);
 		
 
+	}
+
+	private static void convertEbay() {
+		// TODO Auto-generated method stub
+		EbayService ebayService = new EbayService(workDirectory);
+		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
+		ebayService.createAnpostFile(ebayOrders, "eb");
+		
 	}
 
 	private static void createUPSFile() {
