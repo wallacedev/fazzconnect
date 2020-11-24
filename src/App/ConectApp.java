@@ -24,6 +24,7 @@ public class ConectApp {
 	private static int batchSequence = 0;
 	private static String workDirectory = "";
 	private static ArrayList<String> marketPlaces;
+	private static ArrayList<String> foldersToCreate;
 	
 	public static void main(String[] args) {
 		int option = 0;
@@ -32,9 +33,10 @@ public class ConectApp {
 		marketPlaces.add("us");
 		marketPlaces.add("uk");
 		marketPlaces.add("ca");
-		marketPlaces.add("ups");
-		marketPlaces.add("eb");
-		marketPlaces.add("anPost");
+		
+		foldersToCreate = new ArrayList<String>();
+		foldersToCreate.add("amazon");
+		foldersToCreate.add("anpost");
 		//String workDirectory = new String();
 		do {
 			if (workDirectory.equals("")) {
@@ -45,13 +47,15 @@ public class ConectApp {
 			
 			System.out.println("******** FAZZ CONNECT *********");
 			System.out.println("*******************************");
+			System.out.println("Work Directory:" + workDirectory);
 			System.out.println("");
 			System.out.println("Chose an option below:");
-			System.out.println("1 - Convert Amazon file to AnPOst File.");
+			System.out.println("1 - Convert Amazon file to AnPost File.");
 			System.out.println("2 - Convert AnPost Repost to Amazon File.");
 			System.out.println("3 - Change work directory.");
-			System.out.println("4 - Create UPS File.");
-			System.out.println("5 - Convert Ebay.");
+			//System.out.println("4 - Create UPS File.");
+			//System.out.println("5 - Convert Ebay.");
+			System.out.println("6 - Sort File.");
 			System.out.println("0 - Exit.");
 			
 			Scanner scanner = new Scanner(System.in);
@@ -74,12 +78,19 @@ public class ConectApp {
 				createUPSFile();
 			case 5:
 				convertEbay();
+			case 6:
+				sortPy();
 			default:
 				break;
 			}
 		}while(option!=0);
 		
 
+	}
+
+	private static void sortPy() {
+		
+		
 	}
 
 	private static void convertEbay() {
@@ -102,7 +113,7 @@ public class ConectApp {
 		File directory = new File(workDirectory);
 		if(!directory.exists()) {
 			directory.mkdir();
-			for (String string : marketPlaces) {
+			for (String string : foldersToCreate) {
 				File marketFile = new File(workDirectory+"/"+string);
 				marketFile.mkdir();
 			}
@@ -240,56 +251,116 @@ public class ConectApp {
 		//System.out.println(userDirectory);
 		System.out.println("Converting Files...");
 		
-		for (String marketPlace : marketPlaces) {
+		System.out.println("Informe the file name or all:");
+		
+		Scanner scanner = new Scanner(System.in);
+		String marketPlaceOption = scanner.nextLine();
+		
+		if (marketPlaceOption.equals("all")) {
+			//ler todos
+			convertAllMArketsToAnpost();
 			
-			ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>();
-			
-			File path = new File(workDirectory+"/"+marketPlace+"/");
-			File[] files = path.listFiles();
-			
-			if (files.length>0) {
-				Scanner scanner2 = new Scanner(System.in);
-				System.out.println("Inform the batch number for "+marketPlace);
-				batch = scanner2.nextLine();
-				File file = new File(workDirectory+"/"+marketPlace+"/"+files[0].getName());
-				Scanner myReader;
-				try {
-					myReader = new Scanner(file);
-					amazonFileList = new ArrayList<AmazonFile>();
-					myReader.nextLine();
-					while (myReader.hasNextLine()) {
-						String data = myReader.nextLine();
-						AmazonFile amazonFile = convertLineToAmazonFile(data);
-						ArrayList<AmazonFile> amazonFileListVerified = verifications(amazonFile);
-						if(amazonFileListVerified!=null) {
-							for (AmazonFile amazonFile2 : amazonFileListVerified) {
-								amazonFileList.add(amazonFile2);
-							}
-						}
-						// System.out.println(data);
-					}
-					myReader.close();
-					writeAnpostFile(amazonFileList, marketPlace);
-					System.out.println("File "+files[0].getName()+" convertion successful.");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-			}else {
-				System.out.println("No files to convert on "+marketPlace);
-			}
-			
-			
+		}else if (marketPlaces.contains(marketPlaceOption)) {
+			// ler apenas opcao inserida
+			convertMarketToAmpost(marketPlaceOption);
+		}else {
+			// opcao invalida
+			System.out.println("Invalid option.");
 		}
 		
+	}
 
+	private static void convertMarketToAmpost(String marketPlaceOption) {
+
+		File file = new File(workDirectory + "/" + "amazon" + "/" + marketPlaceOption + ".txt");
+
+		ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>();
+
+		Scanner scanner2 = new Scanner(System.in);
+		batch = workDirectory + file.getName().replace(".txt", "");
+		System.out.println("Inform the complement batch number for " + file.getName());
+
+		String batchComplement = scanner2.nextLine().toUpperCase();
+
+		if (!batchComplement.equals("")) {
+			batch += batchComplement;
+		}
+
+		batch = batch.toUpperCase();
+		
+		Scanner myReader;
+		try {
+			myReader = new Scanner(file);
+			amazonFileList = new ArrayList<AmazonFile>();
+			myReader.nextLine();
+			while (myReader.hasNextLine()) {
+				String data = myReader.nextLine();
+				AmazonFile amazonFile = convertLineToAmazonFile(data);
+				ArrayList<AmazonFile> amazonFileListVerified = verifications(amazonFile);
+				if (amazonFileListVerified != null) {
+					for (AmazonFile amazonFile2 : amazonFileListVerified) {
+						amazonFileList.add(amazonFile2);
+					}
+				}
+				// System.out.println(data);
+			}
+			myReader.close();
+			writeAnpostFile(amazonFileList, file.getName().replace(".txt", ""));
+			System.out.println("File " + file.getName() + " convertion successful.");
+		} catch (FileNotFoundException e) {
+			System.out.println("File " + file.getName() + " coudn't be converted.");
+		}
+
+	}
+
+	private static void convertAllMArketsToAnpost() {
+
+		File path = new File(workDirectory + "/" + "amazon" + "/");
+		File[] files = path.listFiles();
+
+		for (File file : files) {
+
+			ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>();
+
+			Scanner scanner2 = new Scanner(System.in);
+			batch = workDirectory+file.getName().replace(".txt", "");
+			System.out.println("Inform the complement batch number for " + file.getName());
+			
+			String batchComplement = scanner2.nextLine();
+			
+			if (!batchComplement.equals("")){
+				batch += batchComplement;
+			}
+
+			Scanner myReader;
+			try {
+				myReader = new Scanner(file);
+				amazonFileList = new ArrayList<AmazonFile>();
+				myReader.nextLine();
+				while (myReader.hasNextLine()) {
+					String data = myReader.nextLine();
+					AmazonFile amazonFile = convertLineToAmazonFile(data);
+					ArrayList<AmazonFile> amazonFileListVerified = verifications(amazonFile);
+					if (amazonFileListVerified != null) {
+						for (AmazonFile amazonFile2 : amazonFileListVerified) {
+							amazonFileList.add(amazonFile2);
+						}
+					}
+					// System.out.println(data);
+				}
+				myReader.close();
+				writeAnpostFile(amazonFileList, file.getName().replace(".txt", ""));
+				System.out.println("File " + file.getName() + " convertion successful.");
+			} catch (FileNotFoundException e) {
+				System.out.println("File " + file.getName() + " coudn't be converted.");
+			}
+		}
 	}
 
 	private static void writeAnpostFile(ArrayList<AmazonFile> amazonFileList, String marketPlace) {
 
 		try {
-			FileWriter autoLinkFile = new FileWriter(workDirectory+"/"+marketPlace+"/"+marketPlace+batch+"_autoLink.txt");
+			FileWriter autoLinkFile = new FileWriter(workDirectory+"/anpost/"+batch+"_autoLink.txt");
 
 			String SEPARATOR = "|";
 
