@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Scanner;
 
 import Model.AmazonFile;
@@ -506,14 +507,13 @@ public class ConectApp {
 		amazonFile.setBuyerName(fields[8]);
 		amazonFile.setBuyerPhoneNumber(fields[9]);
 		amazonFile.setSku(fields[10]);
-		amazonFile.setProductName(Util.getShortName(amazonFile.getSku()));
-		if (amazonFile.getProductName()!=null) {
-			if (amazonFile.getProductName().equals("sku")) {
-				amazonFile.setProductName("SKU "+amazonFile.getSku());
-			}
-		}else {
+		Optional<String> newName = Optional.ofNullable(Util.getShortName(amazonFile.getSku()));
+		if (newName.isPresent()) {
+			amazonFile.setProductName(newName.get());
+		} else {
 			amazonFile.setProductName(fields[11]);
 		}
+		
 		amazonFile.setQuantityPurchased(fields[12]);
 		amazonFile.setQuantityShipped(fields[13]);
 		amazonFile.setQuantityToShip(fields[14]);
