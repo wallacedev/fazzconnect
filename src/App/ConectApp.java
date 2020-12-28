@@ -34,6 +34,7 @@ public class ConectApp {
 		marketPlaces.add("us");
 		marketPlaces.add("uk");
 		marketPlaces.add("ca");
+		marketPlaces.add("au");
 		
 		foldersToCreate = new ArrayList<String>();
 		foldersToCreate.add("amazon");
