@@ -79,6 +79,24 @@ public class AmazonUploadConverter {
 			title.append("ship-method");
 			title.append(SEPARATOR);
 			title.append("transparency_code");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_name");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_line1");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_line2");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_line3");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_city");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_county");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_state_or_region");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_postalcode");
+			title.append(SEPARATOR);
+			title.append("ship_from_address_countrycode");
 			title.append("\n");
 
 			HashSet<String> batches = new HashSet<String>();
@@ -124,6 +142,24 @@ public class AmazonUploadConverter {
 					sbList[i].append("");
 					sbList[i].append(SEPARATOR);
 					sbList[i].append("");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("FAZZ LTD");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("10C Boeing Road");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("Airways Industrial Estate");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("Dublin 17");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("Dublin");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("Dublin");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("D17 E167");
+					sbList[i].append(SEPARATOR);
+					sbList[i].append("IE");
 					sbList[i].append("\n");
 					
 				}
