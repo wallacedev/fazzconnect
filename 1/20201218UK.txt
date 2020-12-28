@@ -1,0 +1,4 @@
+order-id	order-item-id	quantity	ship-date	carrier-code	carrier-name	tracking-number	ship-method	transparency_code
+306-4988564-9819544			12-18-2020	Other	Royal Mail	LX878310126IE		
+406-2217032-5308325			12-18-2020	Other	Royal Mail	LX878310112IE		
+206-3302747-6668325			12-18-2020	Other	Royal Mail	LX878310130IE		
