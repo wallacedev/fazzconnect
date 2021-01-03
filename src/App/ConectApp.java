@@ -38,6 +38,7 @@ public class ConectApp {
 		
 		foldersToCreate = new ArrayList<String>();
 		foldersToCreate.add("amazon");
+		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
 		//String workDirectory = new String();
 		do {
@@ -56,8 +57,8 @@ public class ConectApp {
 			System.out.println("2 - Convert AnPost Repost to Amazon File.");
 			System.out.println("3 - Change work directory.");
 			//System.out.println("4 - Create UPS File.");
-			//System.out.println("5 - Convert Ebay.");
-			System.out.println("6 - Sort File.");
+			System.out.println("5 - Convert Ebay.");
+			//System.out.println("6 - Sort File.");
 			System.out.println("0 - Exit.");
 			
 			Scanner scanner = new Scanner(System.in);

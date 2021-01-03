@@ -64,7 +64,12 @@ public class EbayImporter {
 		for (String line : lines) {
 			
 			Order order = new Order();
-			String[] fields = line.split(",");
+			
+			line = line.replace("\",\"", ";");
+			line = line.replace(",\"", ";");
+			line = line.replace("\",", ";");
+			
+			String[] fields = line.split(";");
 			
 			order.setOrderId(sanitize(fields[1]));
 			
