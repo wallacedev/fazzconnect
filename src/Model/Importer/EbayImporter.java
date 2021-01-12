@@ -3,6 +3,7 @@ package Model.Importer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 import Model.Order;
@@ -16,7 +17,7 @@ public class EbayImporter {
 		this.workDirectory = workDirectory;
 	}
 	
-	public ArrayList <Order> getOrdersFromFile() {
+	public ArrayList <Order> getOrdersFromFile() throws Exception {
 		
 		ArrayList <String> lines = readLines();
 		ArrayList <Order> orders = getOrders(lines);
@@ -57,7 +58,7 @@ public class EbayImporter {
 		return lines;
 	}
 	
-	private ArrayList<Order> getOrders(ArrayList<String> lines) {
+	private ArrayList<Order> getOrders(ArrayList<String> lines) throws Exception {
 		
 		ArrayList<Order> orders = new ArrayList<Order>();
 		
@@ -96,6 +97,7 @@ public class EbayImporter {
 			Product product = new Product();
 			product.setPruductId(sanitize(fields[20]));
 			product.setName(fields[21]);
+			checkProductName(product.getName());			
 			product.setQuantity(sanitize(fields[24]));
 			
 			order.addItem(product);
@@ -103,6 +105,13 @@ public class EbayImporter {
 			orders.add(order);
 		}
 		return orders;
+	}
+	
+	private void checkProductName(String productName) throws Exception {
+		Optional<String> name = Optional.of(productName);
+		if (name.isEmpty() || name.equals("")) {
+			throw new Exception("Product name not found");
+		}
 	}
 	
 	private String sanitize(String value) {

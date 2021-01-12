@@ -1,0 +1,15 @@
+order-id	order-item-id	quantity	ship-date	carrier-code	carrier-name	tracking-number	ship-method	transparency_code	ship_from_address_name	ship_from_address_line1	ship_from_address_line2	ship_from_address_line3	ship_from_address_city	ship_from_address_county	ship_from_address_state_or_region	ship_from_address_postalcode	ship_from_address_countrycode
+202-3149760-6074733			12-28-2020	Other	Royal Mail	LX878312422IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+408-8601828-4312369			12-28-2020	Other	Royal Mail	LX878312351IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+202-8157915-7305156			12-28-2020	Other	Royal Mail	LX878312484IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+204-8159792-5787531			12-28-2020	Other	Royal Mail	LX878312419IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+205-5395605-2889949			12-28-2020	Other	Royal Mail	LX878312440IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+171-6425060-8740351			12-28-2020	Other	Royal Mail	LX878312453IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+405-4623010-0493119			12-28-2020	Other	Royal Mail	LX878312365IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+171-8673655-9164365			12-28-2020	Other	Royal Mail	LX878312498IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+408-1136581-5414706			12-28-2020	Other	Royal Mail	LX878312379IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+203-1266786-8617917			12-28-2020	Other	Royal Mail	LX878312396IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+406-9885964-4046739			12-28-2020	Other	Royal Mail	LX878312382IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+205-1712882-1482760			12-28-2020	Other	Royal Mail	LX878312405IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+203-6101371-2088344			12-28-2020	Other	Royal Mail	LX878312475IE LX878312467IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+026-4161658-5596328			12-28-2020	Other	Royal Mail	LX878312436IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE

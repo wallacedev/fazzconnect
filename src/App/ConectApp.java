@@ -82,7 +82,13 @@ public class ConectApp {
 			case 4:
 				createUPSFile();
 			case 5:
-				convertEbay();
+				try {
+					convertEbay();
+					System.out.println("Conversion successful.");
+				}catch (Exception e) {
+					System.out.println("Conversion failed.");
+					System.out.println(e.getMessage());
+				}
 			case 6:
 				sortPy();
 			default:
@@ -98,7 +104,7 @@ public class ConectApp {
 		
 	}
 
-	private static void convertEbay() {
+	private static void convertEbay() throws Exception {
 		// TODO Auto-generated method stub
 		EbayService ebayService = new EbayService(workDirectory);
 		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();

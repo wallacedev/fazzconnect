@@ -14,7 +14,7 @@ public class EbayService {
 		this.workDirectory = workDirectory;
 	}
 	
-	public ArrayList<Order> importOrdersFromFileToMemory() {
+	public ArrayList<Order> importOrdersFromFileToMemory() throws Exception {
 		EbayImporter importer = new EbayImporter(workDirectory);
 		return importer.getOrdersFromFile();
 	}
