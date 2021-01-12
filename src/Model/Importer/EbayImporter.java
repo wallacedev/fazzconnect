@@ -109,8 +109,7 @@ public class EbayImporter {
 	}
 	
 	private void checkProductName(String productName) throws Exception {
-		Optional<String> name = Optional.of(productName);
-		if (name.isEmpty() || name.equals("")) {
+		if (productName.equals("")) {
 			throw new Exception("Product name not found");
 		}
 	}
