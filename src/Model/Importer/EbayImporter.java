@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import Model.Order;
 import Model.Product;
+import Util.Util;
 
 public class EbayImporter {
 	private final String folder = "ebay";
@@ -89,13 +90,13 @@ public class EbayImporter {
 			
 			order.setShipPostalCode(sanitize(fields[18]));
 			
-			order.setShipCountry(sanitize(fields[19]));
+			order.setShipCountry(Util.getShortCountry(fields[19]));
 			
 			order.setSallesChannel("ebay");
 			
 			Product product = new Product();
 			product.setPruductId(sanitize(fields[20]));
-			product.setName(fields[21]);
+			product.setName(fields[22]);
 			product.setQuantity(sanitize(fields[24]));
 			
 			order.addItem(product);
