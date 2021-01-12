@@ -53,4 +53,32 @@ public abstract class Util {
         }
 		return quantity;
 	}
+	
+	
+	public static String getShortCountry(String country) {
+		Optional<String> shortCountry = Optional.empty();
+		
+		country = country.toUpperCase();
+		country = country.strip().replace(' ', '-');
+		
+		try (InputStream input = new FileInputStream("countries.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            shortCountry = Optional.ofNullable(prop.getProperty(country));
+            input.close();
+        } catch (IOException ex) {
+        	System.out.println("Exception in the function 'getShortCountry()'."); 
+            ex.printStackTrace();
+        }
+		
+		if (shortCountry.isEmpty()) {
+			System.out.println("Country not converted:" + country);
+			return null;
+		}
+		
+		return shortCountry.get();
+	}
+	
+	
+	
 }
