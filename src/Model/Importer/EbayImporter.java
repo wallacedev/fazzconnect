@@ -97,8 +97,14 @@ public class EbayImporter {
 			
 			Product product = new Product();
 			product.setPruductId(sanitize(fields[20]));
-			product.setName(fields[22]);
-			checkProductName(product.getName());			
+			
+			if (sanitize(fields[22]) != "") {
+				product.setName(fields[22]);
+				
+			}else {
+				product.setName(fields[21]);
+			}
+						
 			product.setQuantity(sanitize(fields[24]));
 			
 			order.addItem(product);
@@ -106,12 +112,6 @@ public class EbayImporter {
 			orders.add(order);
 		}
 		return orders;
-	}
-	
-	private void checkProductName(String productName) throws Exception {
-		if (productName.equals("")) {
-			throw new Exception("Product name not found");
-		}
 	}
 	
 	private String sanitize(String value) {
