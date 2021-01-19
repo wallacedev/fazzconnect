@@ -1,0 +1,80 @@
+A|3CA|701-7890861-0452213|Sonia Branco||29 Driftwood Crescent|None|Brampton|On|L6Z 2C3|CA|6p1y8bps7y35hh3@marketplace.amazon.ca|4166022355||1|
+C|701-7890861-0452213|70363454686074|1 x AL0902|1|1|null||CA|||||||
+A|3CA|701-9866248-3982621|Gerhard Labusch||1350 Augustine Drive||Burlington|Ontario|L7P 2M8|CA|k94nwhlsz8kcx0k@marketplace.amazon.ca|9053158619||1|
+C|701-9866248-3982621|21228382988874|1 x AL0902 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-3556618-3761811|Anne Walker||155 Bulls Mill Rd||Baltimore|Ontario|K0K 1C0|CA|nrhb62g8zqsx21h@marketplace.amazon.ca|905-207-0027||1|
+C|701-3556618-3761811|03194576677514|1 x AL0902 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-5709931-9077002|Uriel Holcer||3669 Borham Crescent||Vancouver|British Columbia|V5S 3X2|CA|g7c4z86s68qj1vt@marketplace.amazon.ca|6043536463||1|
+C|701-5709931-9077002|14464588279938|1 x Alford & Lynch Replacement Pool Spa Filter, for Unicel C-4326, Spa Filter FC2375, Pleatco PRB25-IN (2)|1|1|null||CA|||||||
+A|3CA|701-9801382-0452245|Patrick ORourke||212 Coopers Pk SW||Airdrie|AB|T4B 3L7|CA|8ldxrwp4tq8tmcc@marketplace.amazon.ca|4038161989||1|
+C|701-9801382-0452245|35535444012498|1 x AL0902 (4 pk)|1|1|null||CA|||||||
+A|3CA|702-2722119-9317804|Gary Olson||4646-3738 3rd Ave.||Smithers|BC|V0J 2N0|CA|4lt2fn7s2x765c4@marketplace.amazon.ca|2506431055||1|
+C|702-2722119-9317804|28050154067282|1 x AL0902 (4 pk)|1|1|null||CA|||||||
+A|3CA|702-2086767-3551427|Cliff Williams||6 Moulton Crt||Ingersoll|ON|N5C 4C4|CA|55pgvdfjtmsqqrm@marketplace.amazon.ca|5195350095||1|
+C|702-2086767-3551427|45003549262186|1 x AL1806|1|1|null||CA|||||||
+A|3CA|701-6972288-1411435|Pascal foucher||128 rue de Sherbrooke||Coaticook|Quebec|J1A 2M7|CA|8r033tss0hvgc29@marketplace.amazon.ca|8198041025||1|
+C|701-6972288-1411435|36779691147234|1 x AL1509|1|1|null||CA|||||||
+A|3CA|702-7815390-1726664|Alesandra Calvano||2027 Breezewood St||Ottawa|Ontario|K4A 4S3|CA|vzngpj96qwtsd6w@marketplace.amazon.ca|6137995808||1|
+C|702-7815390-1726664|46541294117282|1 x AL1509|1|1|null||CA|||||||
+A|3CA|702-6165182-5657007|Stan Liberty||52 Highlands Cres||Collingwood|ON|L9Y 5H3|CA|g0cn5y0w61cmx8n@marketplace.amazon.ca|7056230667||1|
+C|702-6165182-5657007|24660565024954|1 x AL1509|1|1|null||CA|||||||
+A|3CA|701-4548288-9773853|francis conway||63 willow landing rd.||midhurst|ON|L9X 0P9|CA|wjx09kkwfr48lxk@marketplace.amazon.ca|7056270541||1|
+C|701-4548288-9773853|49907386741098|1 x AL1509|1|1|null||CA|||||||
+A|3CA|701-7439641-5437005|Bob Hanycz||12 Paulander av||Toronto|Ontario|M1C 1W6|CA|w18bslg66g3747q@marketplace.amazon.ca|4162836212||1|
+C|701-7439641-5437005|16535966852522|1 x AL1509|1|1|null||CA|||||||
+A|3CA|701-6534033-4701016|Kerri Randell||7 Ivany's Road||Grand Falls-Windsor|NL|A2B 0A8|CA|97cl7jybmznbyb1@marketplace.amazon.ca|7096400554||1|
+C|701-6534033-4701016|63172832969002|1 x AL1509 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-0201069-2354610|Astrid Millett||41 Mill Street South||Waterdown|Ontario|L0R 2H0|CA|bbjzmwgsm8312h1@marketplace.amazon.ca|905-690-8611||1|
+C|701-0201069-2354610|51772876977810|1 x AL1509 (2 pk)|1|1|null||CA|||||||
+A|3CA|702-0831830-1322625|Lorraine Brown||1190 Shore Acres Drive||Gilford|Ontario|L0L 1R0|CA|vf3fbjtmcbm2z84@marketplace.amazon.ca|7057377834||1|
+C|702-0831830-1322625|47580273386202|1 x AL1509 (2 pk)|1|1|null||CA|||||||
+A|3CA|702-0828954-4812226|Kris Lee||79 Meighen Ave||Portage La Prairie|Manitoba|R1N 3K7|CA|1djlqgtx3r9m5z6@marketplace.amazon.ca|2048566546||1|
+C|702-0828954-4812226|01943920420778|1 x AL1509 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-8948540-4593861|ERNEST WUEBBOLT||16 Edenbridge Drive||Etobicoke|Ontario|M9A 3E9|CA|cqgttg51zc43q0d@marketplace.amazon.ca|4168784882||1|
+C|701-8948540-4593861|03271721159042|1 x AL1509 (4 pk)|1|1|null||CA|||||||
+A|3CA|701-8567682-6361051|Stavros Panagiotopoulos||53 Manor Glen Cres||Mount Albert|Ontario|L0G 1M0|CA|s1pgxwnrdl8zjx6@marketplace.amazon.ca|4152200589||1|
+C|701-8567682-6361051|65804110687346|1 x AL1509 (4 pk)|1|1|null||CA|||||||
+A|3CA|702-0856464-0430639|Michel||703 rang Chartier||Mont-Saint-Gregoire|Quebec|J0J 1K0|CA|4hq1kfmmjfd152t@marketplace.amazon.ca|4505424060||1|
+C|702-0856464-0430639|56246743084570|1 x AL0701 (2 pk)|1|1|null||CA|||||||
+A|3CA|702-5992397-6476263|Dave Perron 827||15 Stevens Crescent||Lake Cowichan|BC|V0R 2G0|CA|g8vwmhz35pm8l5w@marketplace.amazon.ca|2507158001||1|
+C|702-5992397-6476263|02697729008242|1 x AL0701 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-1043130-0144241|Jason Taylor||38 Billings Ave||Toronto|Ontario|M4L 2S2|CA|j760xmbty78k6y7@marketplace.amazon.ca|6473904995||1|
+C|701-1043130-0144241|50328992912618|1 x AL0701 (2 pk)|1|1|null||CA|||||||
+A|3CA|701-5121723-8890649|Vicky St-Gelais||2824 Route de L'Aeroport||Quebec|Quebec|G3K 1B1|CA|tw5lbjm23rrwcwd@marketplace.amazon.ca|4188023275||1|
+C|701-5121723-8890649|26243401804970|1 x AL0506|1|1|null||CA|||||||
+A|3CA|701-8134639-4441046|Jean-Gabriel Belleau||47 rue de Beauport||Gatineau|Quebec|J8R 2K4|CA|n2tt5b4my99g76r@marketplace.amazon.ca|8196610369||1|
+C|701-8134639-4441046|43345039254018|1 x AL0506|1|1|null||CA|||||||
+A|3CA|702-4546628-8300241|François Chenier||138 rue du Commandeur||Cantley|Quebec|J8V 3T5|CA|3z272x4f25x28hx@marketplace.amazon.ca|8192435560||1|
+C|702-4546628-8300241|36752705218338|1 x AL0506 (2 pk)|1|1|null||CA|||||||
+A|3CA|702-5382906-5534605|Brenda House||34 Ann St.||Georgetown|Ontario|L7G 2V2|CA|q2rpl455nfnptrv@marketplace.amazon.ca|289-924-1379||1|
+C|702-5382906-5534605|54099315882218|2 x AL0506 (2 pk)|2|1|null||CA|||||||
+A|3CA|701-1555392-8237062|JOELLE AOUN||99 RUE DE PRADET||GATINEAU|Quebec|J8T8S4|CA|2s9s9pr20m6t4tq@marketplace.amazon.ca|819-962-8990||1|
+C|701-1555392-8237062|61510196226186|1 x AL0506 (4 pk)|1|1|null||CA|||||||
+A|3CA|701-9573258-0449066|Driana Hernandez||3106 King Edward Avenue West||Vancouver|British Columbia|V6L 1V5|CA|l3c83vyslpg57zv@marketplace.amazon.ca|6016198118||1|
+C|701-9573258-0449066|06598692740706|1 x AL0506 (4 pk)|1|1|null||CA|||||||
+A|3CA|702-0490695-3083430|Benoit Vallieres||3 rue Vallieres||Danville|Quebec|J0A 1A0|CA|5vx3sp5cx1w7y9s@marketplace.amazon.ca|819-674-3233||1|
+C|702-0490695-3083430|48851316158946|1 x AL0506 (4 pk)|1|1|null||CA|||||||
+A|3CA|702-8995124-6020242|Dan harding||1319sale barn rd||Greely|Ontario|K4P1L5|CA|5xcbzgyky080vl1@marketplace.amazon.ca|613-552-5251||1|
+C|702-8995124-6020242|43851480212442|1 x AL0506 (4 pk)|1|1|null||CA|||||||
+A|3CA|701-1076497-8274634|Samuel Soriano||512-1717 Avenue Road||Toronto|Ontario|M5M 0A2|CA|jpnxj2x7xprrrsn@marketplace.amazon.ca|416 6707589||1|
+C|701-1076497-8274634|44134943865330|1 x Miele 240 Tabs|1|1|null||CA|||||||
+A|3CA|702-8164285-0806668|Jane Corke||57 Princess Anne Cres.||Toronto|ON|M9A 2P3|CA|cx4v6pzgd199nhl@marketplace.amazon.ca|416 232-1026||1|
+C|702-8164285-0806668|52233500972394|1 x Miele 240 Tabs|1|1|null||CA|||||||
+A|3CA|702-6113306-8891436|Francie Vukovic||95 Galloway drive||Sherwood park|AB|T8A 2N1|CA|06d5w1hkyvmfrtp@marketplace.amazon.ca|7809030789||1|
+C|702-6113306-8891436|56670146277490|1 x Miele 240 Tabs|1|1|null||CA|||||||
+A|3CA|702-5418281-9125001|Joyce Dobransky||21 Lonsdale Drive||London|Ontario|N6G 1T4|CA|crchwy3y95d4msv@marketplace.amazon.ca|5196417144||1|
+C|702-5418281-9125001|20755817713786|1 x Miele 240 Tabs|1|1|null||CA|||||||
+A|3CA|701-3198704-3013844|June Lim||87 Gwendolen Crescent||Toronto|Ontario|M2N 2M3|CA|q2p2jgndd4t8q10@marketplace.amazon.ca|416 512-2475||1|
+C|701-3198704-3013844|39342587864842|1 x Miele 60 tab|1|1|null||CA|||||||
+A|3CA|701-5213629-6053021|Karen McRae||156 Cottingham Street||Toronto|Ontario|M4V 1C3|CA|7jr0gvfc784sqlx@marketplace.amazon.ca|4169202166||1|
+C|701-5213629-6053021|36460086577594|1 x Miele 60 tab|1|1|null||CA|||||||
+A|3CA|702-1843019-4289001|neil feigelsohn||23 Delavan Ave||Toronto|Ontario|M5P 1T2|CA|srkwwrlrrf0bb5h@marketplace.amazon.ca|4167897450||1|
+C|702-1843019-4289001|37499440134994|1 x Miele 60 tab|1|1|null||CA|||||||
+A|3CA|701-9819601-4386627|yuxin liu||6700 gibbons dr||Richmond|British Columbia|V7C 2E1|CA|yj10198z92dyr80@marketplace.amazon.ca|7782512912||1|
+C|701-9819601-4386627|54778229743466|1 x Miele 60 tab|1|1|null||CA|||||||
+A|3CA|702-2763825-6872263|Jason Whiteson||9550 IRONSTONE TER APT 102||NAPLES|FL|34120-5612|US|ymlwstkrm11vqn0@marketplace.amazon.ca|+1 415-851-9136 ext. 23480||1|
+C|702-2763825-6872263|64092712417994|1 x Miele SBB 300-3|1|1|null||US|||||||
+A|3CA|701-8220070-4005800|Joelle auger||540 63E rue Est||Quebec|Quebec|G1H 1Y8|CA|cc4wv8swl9mv6cv@marketplace.amazon.ca|4188020586||1|
+C|701-8220070-4005800|56820455279178|1 x Spa Starter Kit Chemical|1|1|null||CA|||||||
+A|3CA|701-9522823-5897058|Anthony Wong||5886 Ontario Street||Vancouver|British Columbia|V5W 2L9|CA|mksryn29vd5m466@marketplace.amazon.ca|604-325-8715||1|
+C|701-9522823-5897058|49380572190986|1 x Yonex BG 80 Power|1|1|null||CA|||||||

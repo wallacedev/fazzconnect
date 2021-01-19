@@ -30,7 +30,16 @@ public class AmazonFile {
 	private String purchaseOrderNumber;	
 	private String priceDesignation;	
 	private String isSoldByAb;
+	private String shipMethod;
 	
+
+	public String getShipMethod() {
+		return shipMethod;
+	}
+
+	public void setShipMethod(String shipMethod) {
+		this.shipMethod = shipMethod;
+	}
 
 	@Override
 	public String toString() {
@@ -243,6 +252,7 @@ public class AmazonFile {
     	amazonFile.purchaseOrderNumber = this.purchaseOrderNumber;	
     	amazonFile.priceDesignation = this.priceDesignation;	
     	amazonFile.isSoldByAb = this.isSoldByAb;
+    	amazonFile.shipMethod = this.shipMethod;
 	    return amazonFile;
 	}
 	

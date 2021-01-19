@@ -242,11 +242,34 @@ public class ConectApp {
 			}
 		}
 	}
-
+	
 	private static void writeAnpostFile(ArrayList<AmazonFile> amazonFileList, String marketPlace) {
+		ArrayList<AmazonFile> amazonFileListRed = new ArrayList<AmazonFile>();
+		ArrayList<AmazonFile> amazonFileListBlue = new ArrayList<AmazonFile>();
+		 
+		for (AmazonFile amazonFile: amazonFileList) {
+			if(amazonFile.getShipMethod().contentEquals("blue")) {
+				amazonFileListBlue.add(amazonFile);
+			}else {
+				amazonFileListRed.add(amazonFile);
+			}
+		}
+		
+		if (amazonFileListRed.size()>0) {
+			System.out.println(marketPlace + " : " + amazonFileListRed.size() + " red");
+			writeAnpostFile(amazonFileListRed, marketPlace, "Red");
+		}
+		
+		if (amazonFileListBlue.size()>0) {
+			System.out.println(marketPlace + " : " + amazonFileListBlue.size() + " blue");
+			writeAnpostFile(amazonFileListBlue, marketPlace, "Blue");
+		}
+	}
+
+	private static void writeAnpostFile(ArrayList<AmazonFile> amazonFileList, String marketPlace, String shipMethod) {
 
 		try {
-			FileWriter autoLinkFile = new FileWriter(workDirectory+"/anpost/"+batch+"_autoLink.txt");
+			FileWriter autoLinkFile = new FileWriter(workDirectory+"/anpost/"+batch+"_autoLink_"+shipMethod+".txt");
 
 			String SEPARATOR = "|";
 
@@ -392,11 +415,21 @@ public class ConectApp {
 		amazonFile.setBuyerName(fields[8]);
 		amazonFile.setBuyerPhoneNumber(fields[9]);
 		amazonFile.setSku(fields[10]);
+		
 		Optional<String> newName = Optional.ofNullable(Util.getShortName(amazonFile.getSku()));
 		if (newName.isPresent()) {
 			amazonFile.setProductName(newName.get());
-		} else {
-			amazonFile.setProductName(fields[11]);
+			amazonFile.setShipMethod("red");
+		} else if (!newName.isPresent()) {
+			newName = Optional.ofNullable(Util.getShortNameBlue(amazonFile.getSku()));
+			if (newName.isPresent()) {
+				amazonFile.setProductName(newName.get());
+				amazonFile.setShipMethod("blue");
+			} else {
+				amazonFile.setProductName(fields[11]);
+				amazonFile.setShipMethod("red");
+				System.out.println("SKU not converted:" + amazonFile.getSku());
+			}
 		}
 		
 		amazonFile.setQuantityPurchased(fields[12]);
