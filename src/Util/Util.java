@@ -33,7 +33,28 @@ public abstract class Util {
         }
 		
 		if (shortName.isEmpty()) {
-			System.out.println("SKU not converted:" + sku);
+			return null;
+		}
+		
+		return shortName.get();
+	}
+	
+	public static String getShortNameBlue(String sku) {
+		Optional<String> shortName = Optional.empty();
+		
+		sku = sku.strip().replace(' ', '-');
+		
+		try (InputStream input = new FileInputStream("sku-shortname-blue.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            shortName = Optional.ofNullable(prop.getProperty(sku));
+            input.close();
+        } catch (IOException ex) {
+        	System.out.println("Exception in the function 'getShortName()'."); 
+            ex.printStackTrace();
+        }
+		
+		if (shortName.isEmpty()) {
 			return null;
 		}
 		
@@ -78,7 +99,4 @@ public abstract class Util {
 		
 		return shortCountry.get();
 	}
-	
-	
-	
 }
