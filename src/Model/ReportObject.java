@@ -1,13 +1,13 @@
 package Model;
 
-public class AnPostReportLine {
+public class ReportObject {
 	private String idOrder;
 	private String trackNumber;
 	private String country;
 	private String date;
 	private String batch;
 	
-	public AnPostReportLine() {
+	public ReportObject() {
 		idOrder = "";
 		trackNumber = "";
 		country = "";
@@ -54,6 +54,10 @@ public class AnPostReportLine {
 		}else {
 			return "Royal Mail";
 		}
+	}
+	
+	public static String getEbayCarrier() {
+		return "AnPost";
 	}
 
 

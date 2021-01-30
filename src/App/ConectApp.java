@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import Model.AmazonFile;
-import Model.AnPostReportLine;
+import Model.ReportObject;
 import Model.Order;
 import Util.Util;
 import service.AmazonService;
@@ -57,9 +57,8 @@ public class ConectApp {
 			System.out.println("1 - Convert Amazon file to AnPost File.");
 			System.out.println("2 - Convert AnPost Repost to Amazon File.");
 			System.out.println("3 - Change work directory.");
-			//System.out.println("4 - Create UPS File.");
-			System.out.println("5 - Convert Ebay.");
-			//System.out.println("6 - Sort File.");
+			System.out.println("4 - Convert Ebay.");
+			System.out.println("5 - Convert AnPost Repost to eBay File.");
 			System.out.println("0 - Exit.");
 			
 			Scanner scanner = new Scanner(System.in);
@@ -80,17 +79,21 @@ public class ConectApp {
 			case 3:
 				setWorkDirectory();
 			case 4:
-				createUPSFile();
-			case 5:
 				try {
 					convertEbay();
-					System.out.println("Conversion successful.");
+					System.out.println("Ebay Conversion successful.");
 				}catch (Exception e) {
-					System.out.println("Conversion failed.");
+					System.out.println("Ebay conversion failed.");
 					System.out.println(e.getMessage());
 				}
-			case 6:
-				sortPy();
+			case 5:
+				try {
+					createEbayDispachFile();
+					System.out.println("Ebay dispach file creation successful.");
+				}catch (Exception e) {
+					System.out.println("Ebay dispach file creation failed.");
+					System.out.println(e.getMessage());
+				}
 			default:
 				break;
 			}
@@ -99,9 +102,14 @@ public class ConectApp {
 
 	}
 
-	private static void sortPy() {
+	private static void createEbayDispachFile() throws Exception {
+		EbayService ebayService = new EbayService(workDirectory);
+			
+		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
 		
+		ArrayList <ReportObject> ebayTrackNumbers = ebayService.getTrackNumbersFromReport();
 		
+		ebayService.writeEbayDispathFile(ebayOrders, ebayTrackNumbers);
 	}
 
 	private static void convertEbay() throws Exception {

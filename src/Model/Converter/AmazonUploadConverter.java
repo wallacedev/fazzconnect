@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
-import Model.AnPostReportLine;
+import Model.ReportObject;
 
 public class AmazonUploadConverter {
 	
@@ -22,12 +22,12 @@ public class AmazonUploadConverter {
 		
 		System.out.println("Converting File...");
 		
-		ArrayList<AnPostReportLine> anPostReportLineList = new ArrayList<AnPostReportLine>();
+		ArrayList<ReportObject> anPostReportLineList = new ArrayList<ReportObject>();
 		
 		try {
 			File file = new File(workDirectory+"/reportAutoLink.csv");
 			Scanner myReader = new Scanner(file);
-			anPostReportLineList = new ArrayList<AnPostReportLine>();
+			anPostReportLineList = new ArrayList<ReportObject>();
 			myReader.nextLine();
 			myReader.nextLine();
 			myReader.nextLine();
@@ -44,18 +44,18 @@ public class AmazonUploadConverter {
 		
 	}
 	
-	private AnPostReportLine convertLine(String data) {
+	private ReportObject convertLine(String data) {
 		String[] fields = data.split(",");
-		AnPostReportLine anPostReportLine = new AnPostReportLine();
-		anPostReportLine.setIdOrder(fields[0]);
-		anPostReportLine.setTrackNumber(fields[1]);
-		anPostReportLine.setCountry(fields[2]);
-		anPostReportLine.setDate(fields[3]);
-		anPostReportLine.setBatch(fields[4]);
-		return anPostReportLine;
+		ReportObject reportObject = new ReportObject();
+		reportObject.setIdOrder(fields[0]);
+		reportObject.setTrackNumber(fields[1]);
+		reportObject.setCountry(fields[2]);
+		reportObject.setDate(fields[3]);
+		reportObject.setBatch(fields[4]);
+		return reportObject;
 	}
 	
-	private void writeFile(ArrayList<AnPostReportLine> anPostReportLineList) {
+	private void writeFile(ArrayList<ReportObject> anPostReportLineList) {
 		try {
 
 			String SEPARATOR = "\t";
@@ -108,11 +108,11 @@ public class AmazonUploadConverter {
 			
 			int i = 0;
 			for (String batch : batches) {
-				HashMap<String, AnPostReportLine> reportMap = new HashMap<String, AnPostReportLine>();
-				for (AnPostReportLine anPostReportLine : anPostReportLineList) {
+				HashMap<String, ReportObject> reportMap = new HashMap<String, ReportObject>();
+				for (ReportObject anPostReportLine : anPostReportLineList) {
 					if (anPostReportLine.getBatch().equals(batch)) {
 						if (reportMap.get(anPostReportLine.getIdOrder()) != null) {
-							AnPostReportLine temp = reportMap.get(anPostReportLine.getIdOrder());
+							ReportObject temp = reportMap.get(anPostReportLine.getIdOrder());
 							temp.setTrackNumber(temp.getTrackNumber()+" "+ anPostReportLine.getTrackNumber());
 							reportMap.put(anPostReportLine.getIdOrder(), temp);
 						}else {
@@ -122,9 +122,9 @@ public class AmazonUploadConverter {
 				}
 				
 				sbList[i] = new StringBuffer();
-				Iterator<Entry<String, AnPostReportLine>> hmIterator = reportMap.entrySet().iterator(); 
+				Iterator<Entry<String, ReportObject>> hmIterator = reportMap.entrySet().iterator(); 
 				while(hmIterator.hasNext()) {
-					Map.Entry<String, AnPostReportLine> mapElement = hmIterator.next();
+					Map.Entry<String, ReportObject> mapElement = hmIterator.next();
 					sbList[i].append(mapElement.getValue().getIdOrder());
 					sbList[i].append(SEPARATOR);
 					sbList[i].append("");

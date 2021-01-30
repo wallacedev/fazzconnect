@@ -25,6 +25,7 @@ public class Order {
 	private String shipCountry;		
 	private String sallesChannel;
 	private ArrayList<Product> itens;
+	private String idTransaction;
 	
 	public Order() {
 		this.itens = new ArrayList<Product>();
@@ -189,8 +190,10 @@ public class Order {
 	public void addItem(Product product) {
 		this.itens.add(product);
 	}
-	
-	
-	
-	
+	public String getIdTransaction() {
+		return idTransaction;
+	}
+	public void setIdTransaction(String idTransaction) {
+		this.idTransaction = idTransaction;
+	}
 }
