@@ -496,6 +496,4 @@ public class ConectApp {
 		}
 		return amazonFileList;
 	}
-	
-
 }
