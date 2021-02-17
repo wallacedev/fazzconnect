@@ -78,6 +78,7 @@ public class ConectApp {
 				break;
 			case 3:
 				setWorkDirectory();
+				break;
 			case 4:
 				try {
 					convertEbay();
@@ -86,6 +87,7 @@ public class ConectApp {
 					System.out.println("Ebay conversion failed.");
 					System.out.println(e.getMessage());
 				}
+				break;
 			case 5:
 				try {
 					createEbayDispachFile();
@@ -94,6 +96,7 @@ public class ConectApp {
 					System.out.println("Ebay dispach file creation failed.");
 					System.out.println(e.getMessage());
 				}
+				break;
 			default:
 				break;
 			}
@@ -346,7 +349,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// WEIGHT
-				sb.append("1");
+				sb.append("");
 				sb.append(SEPARATOR);
 				sb.append("\n");
 
@@ -375,7 +378,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// CONTENTS_WEIGHT
-				sb.append("1");
+				sb.append("");
 				sb.append(SEPARATOR);
 
 				// CONTENTS_ITEM_VALUE

@@ -81,7 +81,7 @@ public class AnPostImporter {
 				sb.append(SEPARATOR);
 
 				// WEIGHT
-				sb.append("1");
+				sb.append("");
 				sb.append(SEPARATOR);
 				
 
@@ -113,7 +113,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_WEIGHT
-					sb.append("1");
+					sb.append("");
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_VALUE
