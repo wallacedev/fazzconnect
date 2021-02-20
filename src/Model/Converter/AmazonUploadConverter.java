@@ -1,63 +1,21 @@
 package Model.Converter;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Scanner;
 
+import Model.Order;
 import Model.ReportObject;
 
-public class AmazonUploadConverter {
+public class AmazonUploadConverter implements BaseUploadConverter{
 	
 	private String workDirectory;
 	
-	public void convert(String workDirectory) {
-		
+	public AmazonUploadConverter (String workDirectory) {
 		this.workDirectory = workDirectory;
-		
-		System.out.println("Converting File...");
-		
-		ArrayList<ReportObject> anPostReportLineList = new ArrayList<ReportObject>();
-		
-		try {
-			File file = new File(workDirectory+"/reportAutoLink.csv");
-			Scanner myReader = new Scanner(file);
-			anPostReportLineList = new ArrayList<ReportObject>();
-			myReader.nextLine();
-			myReader.nextLine();
-			myReader.nextLine();
-			while (myReader.hasNextLine()) {
-				String data = myReader.nextLine();
-				anPostReportLineList.add(convertLine(data));
-			}
-			myReader.close();
-			writeFile(anPostReportLineList);
-			System.out.println("File convertion successful.");
-		} catch (Exception e) {
-			System.out.println("File not converted.");
-		}
-		
 	}
 	
-	private ReportObject convertLine(String data) {
-		String[] fields = data.split(",");
-		ReportObject reportObject = new ReportObject();
-		reportObject.setIdOrder(fields[0]);
-		reportObject.setTrackNumber(fields[1]);
-		reportObject.setCountry(fields[2]);
-		reportObject.setDate(fields[3]);
-		reportObject.setBatch(fields[4]);
-		return reportObject;
-	}
-	
-	private void writeFile(ArrayList<ReportObject> anPostReportLineList) {
+	public void writeAmazonDispatchFile(ArrayList<Order> amazonOrders, ArrayList<ReportObject> reportObjects) {
 		try {
-
 			String SEPARATOR = "\t";
 
 			// Writing file title
@@ -98,81 +56,74 @@ public class AmazonUploadConverter {
 			title.append(SEPARATOR);
 			title.append("ship_from_address_countrycode");
 			title.append("\n");
-
-			HashSet<String> batches = new HashSet<String>();
-			for (int i = 0; i < anPostReportLineList.size(); i++) {
-				batches.add(anPostReportLineList.get(i).getBatch());
-			}
-
-			StringBuffer[] sbList = new StringBuffer[batches.size()];
 			
-			int i = 0;
-			for (String batch : batches) {
-				HashMap<String, ReportObject> reportMap = new HashMap<String, ReportObject>();
-				for (ReportObject anPostReportLine : anPostReportLineList) {
-					if (anPostReportLine.getBatch().equals(batch)) {
-						if (reportMap.get(anPostReportLine.getIdOrder()) != null) {
-							ReportObject temp = reportMap.get(anPostReportLine.getIdOrder());
-							temp.setTrackNumber(temp.getTrackNumber()+" "+ anPostReportLine.getTrackNumber());
-							reportMap.put(anPostReportLine.getIdOrder(), temp);
-						}else {
-							reportMap.put(anPostReportLine.getIdOrder(), anPostReportLine);
-						}
-					}
-				}
+			StringBuffer content = new StringBuffer();
+			
+			for (Order order : amazonOrders) {
 				
-				sbList[i] = new StringBuffer();
-				Iterator<Entry<String, ReportObject>> hmIterator = reportMap.entrySet().iterator(); 
-				while(hmIterator.hasNext()) {
-					Map.Entry<String, ReportObject> mapElement = hmIterator.next();
-					sbList[i].append(mapElement.getValue().getIdOrder());
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append(mapElement.getValue().getConvertedDate());
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("Other");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append(mapElement.getValue().getCarrier());
-					sbList[i].append(SEPARATOR);
-					sbList[i].append(mapElement.getValue().getTrackNumber());
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("FAZZ LTD");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("10C Boeing Road");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("Airways Industrial Estate");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("Dublin 17");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("Dublin");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("Dublin");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("D17 E167");
-					sbList[i].append(SEPARATOR);
-					sbList[i].append("IE");
-					sbList[i].append("\n");
-					
-				}
+				content.append(order.getOrderId());
+				content.append(SEPARATOR);
 				
-				FileWriter file = new FileWriter(workDirectory+"/"+batch + ".txt");
-				file.write(title.toString());
-				file.write(sbList[i].toString());
-				file.close();
-				i++;
+				content.append(order.getItens().get(1).getPruductId());
+				content.append(SEPARATOR);
+				
+				content.append("");
+				content.append(SEPARATOR);
+				
+				content.append(getDate(order.getOrderId(), reportObjects));
+				content.append(SEPARATOR);
+				
+				content.append("Other");
+				content.append(SEPARATOR);
+				
+				content.append(ReportObject.getCarrier(order.getShipCountry()));
+				content.append(SEPARATOR);
+				
+				content.append(getTrackNumber(order.getOrderId(), reportObjects));
+				content.append(SEPARATOR);
+				
+				content.append("");
+				content.append(SEPARATOR);
+				
+				content.append("");
+				content.append(SEPARATOR);
+				
+				content.append("FAZZ LTD");
+				content.append(SEPARATOR);
+				
+				content.append("10C Boeing Road");
+				content.append(SEPARATOR);
+				
+				content.append("Airways Industrial Estate");
+				content.append(SEPARATOR);
+				
+				content.append("");
+				content.append(SEPARATOR);
+				
+				content.append("Dublin 17");
+				content.append(SEPARATOR);
+				
+				content.append("Dublin");
+				content.append(SEPARATOR);
+				
+				content.append("Dublin");
+				content.append(SEPARATOR);
+				
+				content.append("D17 E167");
+				content.append(SEPARATOR);
+				
+				content.append("IE");
+				content.append("\n");
 			}
+			
+			String batch = amazonOrders.get(1).getBatch();
+			FileWriter file = new FileWriter(workDirectory+"/dispatch/"+batch + ".txt");
+			file.write(title.toString());
+			file.write(content.toString());
+			file.close();
+			
 		} catch (Exception e) {
-			System.out.println("File not Converted.");
+			e.printStackTrace();
 		}
-
 	}
 }

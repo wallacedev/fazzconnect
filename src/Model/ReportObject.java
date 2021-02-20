@@ -48,7 +48,7 @@ public class ReportObject {
 	}
 
 
-	public String getCarrier() {
+	public static String getCarrier(String country) {
 		if (country.contentEquals("US") || country.contentEquals("CA") || country.contentEquals("IE")) {
 			return ("AnPost / USPS");
 		}else {

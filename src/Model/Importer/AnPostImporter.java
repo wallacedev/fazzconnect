@@ -81,7 +81,7 @@ public class AnPostImporter {
 				sb.append(SEPARATOR);
 
 				// WEIGHT
-				sb.append("");
+				sb.append("2");
 				sb.append(SEPARATOR);
 				
 

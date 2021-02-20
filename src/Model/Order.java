@@ -26,6 +26,7 @@ public class Order {
 	private String sallesChannel;
 	private ArrayList<Product> itens;
 	private String idTransaction;
+	private String batch;
 	
 	public Order() {
 		this.itens = new ArrayList<Product>();
@@ -195,5 +196,11 @@ public class Order {
 	}
 	public void setIdTransaction(String idTransaction) {
 		this.idTransaction = idTransaction;
+	}
+	public String getBatch() {
+		return batch;
+	}
+	public void setBatch(String batch) {
+		this.batch = batch;
 	}
 }
