@@ -5,17 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Scanner;
 
 import Model.AmazonFile;
-import Model.ReportObject;
 import Model.Order;
+import Model.ReportObject;
 import Util.Util;
 import service.AmazonService;
 import service.EbayService;
@@ -23,7 +18,6 @@ import service.EbayService;
 public class ConectApp {
 
 	private static String batch = "";
-	private static int batchSequence = 0;
 	private static String workDirectory = "";
 	private static ArrayList<String> marketPlaces;
 	private static ArrayList<String> foldersToCreate;
@@ -41,7 +35,7 @@ public class ConectApp {
 		foldersToCreate.add("amazon");
 		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
-		//String workDirectory = new String();
+		
 		do {
 			if (workDirectory.equals("")) {
 				System.out.println("******** FAZZ CONNECT *********");
@@ -63,46 +57,73 @@ public class ConectApp {
 			
 			Scanner scanner = new Scanner(System.in);
 			option = scanner.nextInt();
-			
 	
 			switch (option) {
 			case 1:
-				convertAmazonToAnPostFile();
-				System.out.println("Press Enter to finish.");
-				Scanner scanner2 = new Scanner(System.in);
-				scanner2.nextLine();
+				try {
+					convertAmazonToAnPostFile();
+					System.out.println("Amazon Conversion successful.");
+				} catch (Exception e) {
+					System.out.println("Amazon conversion failed.");
+					System.out.println(e.getMessage());
+				}
 				break;
+				
 			case 2:
-				AmazonService amazomService = new AmazonService(workDirectory);
-				amazomService.ConvertReportToAmazonUploadFile();
+				try { 
+					createAllAmazonDispachFile();
+					System.out.println("Amazon dispach file creation successful.");
+				} catch (Exception e) {
+					System.out.println("Amazon dispach file creation failed.");
+					System.out.println(e.getMessage());
+				}
 				break;
+				
 			case 3:
 				setWorkDirectory();
 				break;
+				
 			case 4:
 				try {
 					convertEbay();
 					System.out.println("Ebay Conversion successful.");
-				}catch (Exception e) {
+				} catch (Exception e) {
 					System.out.println("Ebay conversion failed.");
 					System.out.println(e.getMessage());
 				}
 				break;
+				
 			case 5:
 				try {
 					createEbayDispachFile();
 					System.out.println("Ebay dispach file creation successful.");
-				}catch (Exception e) {
+				} catch (Exception e) {
 					System.out.println("Ebay dispach file creation failed.");
 					System.out.println(e.getMessage());
 				}
 				break;
+				
 			default:
 				break;
 			}
-		}while(option!=0);
+			
+		} while(option!=0);
+	}
+	
+	private static void createAllAmazonDispachFile() throws Exception {
+		for (String marketPlace: marketPlaces) {
+			createAmazonDispachFile(marketPlace);
+		}
+	}
+	
+	private static void createAmazonDispachFile(String marketPlace) throws Exception {
+		AmazonService amazomService = new AmazonService(workDirectory);
 		
-
+		ArrayList <Order> amazonOrders = amazomService.importOrdersFromFileToMemory(marketPlace);
+		
+		ArrayList <ReportObject> amazonTrackNumbers = amazomService.getTrackNumbersFromReport();
+		
+		amazomService.writeAmazonDispathFile(amazonOrders, amazonTrackNumbers);
 	}
 
 	private static void createEbayDispachFile() throws Exception {
@@ -116,9 +137,10 @@ public class ConectApp {
 	}
 
 	private static void convertEbay() throws Exception {
-		// TODO Auto-generated method stub
 		EbayService ebayService = new EbayService(workDirectory);
+		
 		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
+		
 		ebayService.createAnpostFile(ebayOrders, "eb");
 		
 	}
@@ -140,33 +162,39 @@ public class ConectApp {
 				marketFile.mkdir();
 			}
 		}
+		scanner.close();
 		
 	}
 
-	private static void convertAmazonToAnPostFile() {
-		//String userDirectory = new File("").getAbsolutePath();
-		//System.out.println(userDirectory);
+	private static void convertAmazonToAnPostFile() throws Exception {
 		System.out.println("Converting Files...");
 		
 		System.out.println("Informe the file name or all:");
 		
 		Scanner scanner = new Scanner(System.in);
 		String marketPlaceOption = scanner.nextLine();
+		scanner.close();
 		
 		if (marketPlaceOption.equals("all")) {
-			//ler todos
-			convertAllMArketsToAnpost();
+			convertAllAmazon();
 			
 		}else if (marketPlaces.contains(marketPlaceOption)) {
-			// ler apenas opcao inserida
-			convertMarketToAmpost(marketPlaceOption);
+			convertAmazon(marketPlaceOption);
+			
 		}else {
-			// opcao invalida
 			System.out.println("Invalid option.");
 		}
 		
 	}
-
+	
+	private static void convertAmazon(String marketPlace) throws Exception  {
+		AmazonService amazonService = new AmazonService(workDirectory);
+		
+		ArrayList <Order> amazonOrders = amazonService.importOrdersFromFileToMemory(marketPlace);
+		
+		amazonService.createAnpostFile(amazonOrders, marketPlace);
+	}
+	
 	private static void convertMarketToAmpost(String marketPlaceOption) {
 
 		File file = new File(workDirectory + "/" + "amazon" + "/" + marketPlaceOption + ".txt");
@@ -208,6 +236,13 @@ public class ConectApp {
 			System.out.println("File " + file.getName() + " coudn't be converted.");
 		}
 
+	}
+	
+	private static void convertAllAmazon() throws Exception {
+		for (String marketPlace: marketPlaces) {
+			convertAmazon(marketPlace);
+		}
+		
 	}
 
 	private static void convertAllMArketsToAnpost() {

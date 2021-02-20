@@ -1,20 +1,12 @@
 package Model.Converter;
 
-import java.awt.List;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import Model.Order;
 import Model.ReportObject;
 
-public class EbayUploadConverter {
+public class EbayUploadConverter implements BaseUploadConverter{
 
 	private String workDirectory;
 	
@@ -61,7 +53,7 @@ public class EbayUploadConverter {
 				content.append("\n");	
 			}
 			
-			FileWriter file = new FileWriter(workDirectory+"/ebayDispatch.csv");
+			FileWriter file = new FileWriter(workDirectory+"/dispatch/ebayDispatch.csv");
 			file.write(title.toString());
 			file.write(content.toString());
 			file.close();
@@ -72,13 +64,5 @@ public class EbayUploadConverter {
 		}
 	}
 	
-	private String getTrackNumber (String idOrder, ArrayList<ReportObject> ebayTrackNumbers) throws Exception {
-		return Optional.ofNullable(ebayTrackNumbers
-		.stream()
-		.filter(ebayTrackNumber -> ebayTrackNumber.getIdOrder().equals(idOrder))
-		.findAny()
-		.get()
-		.getTrackNumber())
-				.orElseThrow(() -> new Exception("Track number not found"));
-	}
+	
 }
