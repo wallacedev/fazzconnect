@@ -23,8 +23,8 @@ public class UPSImporter {
 				myReader.nextLine();
 				while (myReader.hasNextLine()) {
 					String data = myReader.nextLine();
-					Order order = new Order(data);
-					orders.add(order);
+					//Order order = new Order(data);
+					//orders.add(order);
 				}
 				myReader.close();
 				

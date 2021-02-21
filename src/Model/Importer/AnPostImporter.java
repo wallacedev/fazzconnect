@@ -2,14 +2,14 @@ package Model.Importer;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import Model.Order;
 import Model.Product;
 
 public class AnPostImporter {
 
-	public void writeImportFile(ArrayList<Order> orders, String marketPlace, String workDirectory) {
+	public void writeImportFile(List<Order> orders, String marketPlace, String workDirectory) {
 
 		try {
 			String batch = workDirectory+marketPlace;

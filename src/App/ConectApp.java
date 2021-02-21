@@ -190,9 +190,11 @@ public class ConectApp {
 	private static void convertAmazon(String marketPlace) throws Exception  {
 		AmazonService amazonService = new AmazonService(workDirectory);
 		
-		ArrayList <Order> amazonOrders = amazonService.importOrdersFromFileToMemory(marketPlace);
+		amazonService.importOrdersFromFileToMemory(marketPlace);
 		
-		amazonService.createAnpostFile(amazonOrders, marketPlace);
+		amazonService.processOrders();
+		
+		amazonService.createAnpostFiles(amazonService.getImportedOrders(), marketPlace);
 	}
 	
 	private static void convertMarketToAmpost(String marketPlaceOption) {
@@ -505,10 +507,10 @@ public class ConectApp {
 	}
 	
 	private static ArrayList<AmazonFile> splitOrders(AmazonFile amazonFile) {
-		String split = Util.quantityToSplit(amazonFile.getSku());
+		int split = Util.quantityToSplit(amazonFile.getSku());
 		ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>(); 
-		if(split!=null) {
-			int quantity = Integer.parseInt(split);
+		if(split!=0) {
+			int quantity = split;
 			if (Integer.parseInt(amazonFile.getQuantityPurchased())>quantity) {
 				int quantityToSplit = Integer.parseInt(amazonFile.getQuantityPurchased());
 				if(quantity==0) {

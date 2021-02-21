@@ -3,7 +3,6 @@ package Model.Importer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 import Model.Order;
@@ -116,11 +115,14 @@ public class AmazonImporter {
 				product.setSku(fields[10]);
 				product.setQuantity(fields[12]);
 				
-				//retornar a ordem em questao e adicinar o produto a ela (pesquisar como fazer isso com stream)
-				orders.stream().findAny();
+				orders.add(
+					orders
+						.stream()
+						.filter(myOrder -> myOrder.getOrderId().equals(fields[2]))
+						.findAny()
+						.get()
+				);
 			}
-			
-			
 		}
 		return orders;
 	}

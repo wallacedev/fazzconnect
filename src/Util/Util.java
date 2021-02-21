@@ -61,7 +61,7 @@ public abstract class Util {
 		return shortName.get();
 	}
 	
-	public static String quantityToSplit(String sku) {
+	public static int quantityToSplit(String sku) {
 		String quantity = "";
 		try (InputStream input = new FileInputStream("split.properties")) {
             Properties prop = new Properties();
@@ -72,7 +72,7 @@ public abstract class Util {
         	System.out.println("Exception in the function 'getShortName()'."); 
             ex.printStackTrace();
         }
-		return quantity;
+		return Integer.parseInt(quantity);
 	}
 	
 	
