@@ -16,6 +16,7 @@ import java.util.Scanner;
 import Model.AmazonFile;
 import Model.ReportObject;
 import Model.Order;
+import Model.Product;
 import Util.Util;
 import service.AmazonService;
 import service.EbayService;
@@ -349,7 +350,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// WEIGHT
-				sb.append("");
+				sb.append("2");
 				sb.append(SEPARATOR);
 				sb.append("\n");
 
@@ -378,7 +379,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// CONTENTS_WEIGHT
-				sb.append("");
+				sb.append("2");
 				sb.append(SEPARATOR);
 
 				// CONTENTS_ITEM_VALUE
@@ -386,7 +387,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// CONTENTS_CUSTOMS_TARIFF
-				sb.append("");
+				sb.append(getCustomTariff(amazonFileList.get(i).getProductName()));
 				sb.append(SEPARATOR);
 
 				// CONTENTS_COUNTRY_ORIGIN
@@ -410,6 +411,27 @@ public class ConectApp {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
+	}
+	
+	public static String getCustomTariff(String productName) {
+		String CUSTOM_TARIF = "8421.99.0";
+		String sulfix = "al";
+		
+		if (isSulfixMatch(productName, sulfix))
+			return CUSTOM_TARIF;
+		else
+			return "";
+	}
+
+	private static boolean isSulfixMatch(String shortName, String sulfix) {
+		Optional<String> sub = Optional.ofNullable(shortName.substring(4, 6).toLowerCase());
+		
+		if (sub.isPresent()) {
+			if (sulfix.equals(sub.get())) {
+				return true;
+			}
+		} 
+		return false;
 	}
 
 	private static AmazonFile convertLineToAmazonFile(String data) {
