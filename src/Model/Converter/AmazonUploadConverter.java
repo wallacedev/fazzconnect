@@ -64,7 +64,7 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 				content.append(order.getOrderId());
 				content.append(SEPARATOR);
 				
-				content.append(order.getItens().get(1).getPruductId());
+				content.append(order.getItens().get(0).getPruductId());
 				content.append(SEPARATOR);
 				
 				content.append("");
@@ -116,7 +116,7 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 				content.append("\n");
 			}
 			
-			String batch = amazonOrders.get(1).getBatch();
+			String batch = amazonOrders.get(0).getBatch();
 			FileWriter file = new FileWriter(workDirectory+"/dispatch/"+batch + ".txt");
 			file.write(title.toString());
 			file.write(content.toString());

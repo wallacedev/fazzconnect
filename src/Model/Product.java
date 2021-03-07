@@ -13,7 +13,7 @@ public class Product {
 	String name;
 	String shortName;
 	String dispach;
-	String quantity;
+	int quantity;
 	String customTarif;
 	
 
@@ -29,5 +29,25 @@ public class Product {
 	public String getNameWithQuantity() {
 		return String.format("%s %s", this.quantity, this.getShortName());
 		
+	}
+	
+	@Override
+	public Object clone() {
+		Product product = new Product();
+	    try {
+	    	product = (Product) super.clone();
+	    } catch (CloneNotSupportedException e) {
+	        
+	    }
+	    product.sku = this.sku;
+		product.assin = this.assin;
+		product.pruductId = this.pruductId;
+		product.name = this.name;
+		product.shortName = this.shortName;
+		product.dispach = this.dispach;
+		product.quantity = this.quantity;
+		product.customTarif = this.customTarif;
+		
+		return product;
 	}
 }

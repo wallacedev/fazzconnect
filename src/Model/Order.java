@@ -39,7 +39,7 @@ public class Order {
 	
 	public boolean isRedLabel () {
 		if (itens.size() == 1) {
-			if (itens.get(1).getDispach().equals("red")) {
+			if (itens.get(0).getDispach().equals("red")) {
 				return true;
 			}	
 		}
@@ -48,7 +48,7 @@ public class Order {
 	
 	public boolean isBlueLabel () {
 		if (itens.size() == 1) {
-			if (itens.get(1).getDispach().equals("blue")) {
+			if (itens.get(0).getDispach().equals("blue")) {
 				return true;
 			}	
 		}
@@ -60,7 +60,7 @@ public class Order {
 			return true;
 		}
 		else {
-			if (itens.get(1).getDispach().equals("analise")) {
+			if (itens.get(0).getDispach().equals("analise")) {
 				return true;
 			}	
 			return false;
@@ -95,9 +95,13 @@ public class Order {
 	    order.shipPostalCode = this.shipPostalCode;	
 	    order.shipCountry = this.shipCountry;	
 	    order.sallesChannel = this.sallesChannel;
-		order.itens = this.itens;
 		order.idTransaction = this.idTransaction;
 		order.batch = this.batch;
+		
+		ArrayList<Product> itens = new ArrayList<Product>();
+		this.itens.forEach(i -> itens.add((Product)i.clone()));
+		
+		order.itens = itens;
 	    return order;
 	}
 	

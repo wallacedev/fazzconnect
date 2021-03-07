@@ -61,18 +61,22 @@ public abstract class Util {
 		return shortName.get();
 	}
 	
-	public static int quantityToSplit(String sku) {
-		String quantity = "";
+	public static String quantityToSplit(String sku) {
+		Optional<String> quantity = Optional.empty();
 		try (InputStream input = new FileInputStream("split.properties")) {
             Properties prop = new Properties();
             prop.load(input);
-            quantity = prop.getProperty(sku);
+            quantity = Optional.ofNullable(prop.getProperty(sku));
             input.close();
         } catch (IOException ex) {
         	System.out.println("Exception in the function 'getShortName()'."); 
             ex.printStackTrace();
         }
-		return Integer.parseInt(quantity);
+		
+		if (quantity.isEmpty()) {
+			return null;
+		}
+		return quantity.get();
 	}
 	
 	

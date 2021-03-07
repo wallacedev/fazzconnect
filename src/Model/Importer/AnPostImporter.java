@@ -28,11 +28,9 @@ public class AnPostImporter {
 
 				// INVOICE_bach
 				sb.append(batch);
-				//sb.append(amazonFileList.get(i).getOrderId());
 				sb.append(SEPARATOR);
 
 				// CONSIGNEE_idOrder
-				//sb.append(amazonFileList.get(i).getRecipientName());
 				sb.append(orders.get(i).getOrderId());
 				sb.append(SEPARATOR);
 
@@ -83,7 +81,7 @@ public class AnPostImporter {
 				// WEIGHT
 				sb.append("2");
 				sb.append(SEPARATOR);
-				
+				sb.append("\n");
 
 				autoLinkFile.write(sb.toString());
 
@@ -92,7 +90,6 @@ public class AnPostImporter {
 					
 					sb = new StringBuffer();
 					// INDICATOR
-					sb.append("\n");
 					sb.append("C");
 					sb.append(SEPARATOR);
 	
@@ -105,7 +102,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_DESCRIPTION
-					sb.append(item.getNameWithQuantity());
+					sb.append(item.getShortName());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_NO_UNITS
@@ -113,7 +110,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_WEIGHT
-					sb.append("");
+					sb.append("2");
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_VALUE
@@ -121,7 +118,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_CUSTOMS_TARIFF
-					sb.append("");
+					sb.append(item.getCustomTarif());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_COUNTRY_ORIGIN

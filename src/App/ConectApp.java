@@ -35,6 +35,9 @@ public class ConectApp {
 		foldersToCreate.add("amazon");
 		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
+		foldersToCreate.add("dispatch");
+		
+		Scanner scanner = new Scanner(System.in);
 		
 		do {
 			if (workDirectory.equals("")) {
@@ -54,8 +57,7 @@ public class ConectApp {
 			System.out.println("4 - Convert Ebay.");
 			System.out.println("5 - Convert AnPost Repost to eBay File.");
 			System.out.println("0 - Exit.");
-			
-			Scanner scanner = new Scanner(System.in);
+						
 			option = scanner.nextInt();
 	
 			switch (option) {
@@ -162,7 +164,7 @@ public class ConectApp {
 				marketFile.mkdir();
 			}
 		}
-		scanner.close();
+		//scanner.close();
 		
 	}
 
@@ -507,33 +509,34 @@ public class ConectApp {
 	}
 	
 	private static ArrayList<AmazonFile> splitOrders(AmazonFile amazonFile) {
-		int split = Util.quantityToSplit(amazonFile.getSku());
-		ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>(); 
-		if(split!=0) {
-			int quantity = split;
-			if (Integer.parseInt(amazonFile.getQuantityPurchased())>quantity) {
-				int quantityToSplit = Integer.parseInt(amazonFile.getQuantityPurchased());
-				if(quantity==0) {
-					quantityToSplit = quantityToSplit*2;
-				}
-				amazonFile.setQuantityPurchased("1");
-				amazonFile.setQuantityToShip("1");
-				String productName = amazonFile.getProductName();
-				for (int i = 0; i < quantityToSplit; i++) {
-					AmazonFile amazonFileTemp = (AmazonFile) amazonFile.clone();
-					amazonFileTemp.setProductName(i+1 +"/"+ quantityToSplit +  " - " +productName);
-					amazonFileTemp.setOrderItemId(amazonFileTemp.getOrderId()+i);
-					amazonFileList.add(amazonFileTemp);
-				}
-			}
-			else {
-				amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
-				amazonFileList.add(amazonFile);
-			}
-		}else {
-			amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
-			amazonFileList.add(amazonFile);
-		}
-		return amazonFileList;
+//		int split = Util.quantityToSplit(amazonFile.getSku());
+//		ArrayList<AmazonFile> amazonFileList = new ArrayList<AmazonFile>(); 
+//		if(split!=0) {
+//			int quantity = split;
+//			if (Integer.parseInt(amazonFile.getQuantityPurchased())>quantity) {
+//				int quantityToSplit = Integer.parseInt(amazonFile.getQuantityPurchased());
+//				if(quantity==0) {
+//					quantityToSplit = quantityToSplit*2;
+//				}
+//				amazonFile.setQuantityPurchased("1");
+//				amazonFile.setQuantityToShip("1");
+//				String productName = amazonFile.getProductName();
+//				for (int i = 0; i < quantityToSplit; i++) {
+//					AmazonFile amazonFileTemp = (AmazonFile) amazonFile.clone();
+//					amazonFileTemp.setProductName(i+1 +"/"+ quantityToSplit +  " - " +productName);
+//					amazonFileTemp.setOrderItemId(amazonFileTemp.getOrderId()+i);
+//					amazonFileList.add(amazonFileTemp);
+//				}
+//			}
+//			else {
+//				amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+//				amazonFileList.add(amazonFile);
+//			}
+//		}else {
+//			amazonFile.setProductName(amazonFile.getQuantityPurchased() + " x " +amazonFile.getProductName());
+//			amazonFileList.add(amazonFile);
+//		}
+//		return amazonFileList;
+		return null;
 	}
 }

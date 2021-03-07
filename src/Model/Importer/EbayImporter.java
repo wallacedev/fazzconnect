@@ -105,7 +105,7 @@ public class EbayImporter {
 			
 			product.setName(getProductName(shortName, fullName));
 						
-			product.setQuantity(sanitize(fields[24]));
+			product.setQuantity(Integer.valueOf(sanitize(fields[24])));
 			
 			order.addItem(product);
 			

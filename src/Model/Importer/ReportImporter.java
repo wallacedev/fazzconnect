@@ -2,6 +2,7 @@ package Model.Importer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -39,7 +40,9 @@ public class ReportImporter {
 			myReader.nextLine();
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
-				reportObjects.add(convertLine(data));
+				if (convertLine(data) != null) {
+					reportObjects.add(convertLine(data));
+				}
 			}
 			myReader.close();
 			System.out.println("File convertion successful.");
@@ -51,13 +54,17 @@ public class ReportImporter {
 	
 	private ReportObject convertLine(String data) {
 		String[] fields = data.split(",");
-		ReportObject reportObject = new ReportObject();
-		reportObject.setIdOrder(fields[0]);
-		reportObject.setTrackNumber(fields[1]);
-		reportObject.setCountry(fields[2]);
-		reportObject.setDate(fields[3]);
-		reportObject.setBatch(fields[4]);
-		return reportObject;
+		if (fields.length == 5) {
+			ReportObject reportObject = new ReportObject();
+			reportObject.setIdOrder(fields[0]);
+			reportObject.setTrackNumber(fields[1]);
+			reportObject.setCountry(Optional.ofNullable(fields[2]).orElse(""));
+			reportObject.setDate(Optional.ofNullable(fields[3]).orElse(""));
+			reportObject.setBatch(Optional.ofNullable(fields[4]).orElse(""));
+			return reportObject;
+		}
+		else return null;
+		
 	}
 
 }

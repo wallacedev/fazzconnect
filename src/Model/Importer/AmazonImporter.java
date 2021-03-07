@@ -70,15 +70,15 @@ public class AmazonImporter {
 				
 				order.setBuyerPhoneNumber(fields[9]);
 				
-				order.setSku(fields[10]);
+				//order.setSku(fields[10]);
 				
-				order.setProductName(fields[11]);
+				//order.setProductName(fields[11]);
 				
-				order.setQuantityPurchased(fields[12]);
+				//order.setQuantityPurchased(fields[12]);
 				
-				order.setQuantityShipped(fields[13]);
+				//order.setQuantityShipped(fields[13]);
 				
-				order.setQuantityToShip(fields[14]);
+				//order.setQuantityToShip(fields[14]);
 				
 				order.setRecipientName(fields[16]);
 				
@@ -100,9 +100,9 @@ public class AmazonImporter {
 				
 				Product product = new Product();
 				product.setName(fields[11]);
-				product.setPruductId(fields[2]);
+				product.setPruductId(fields[1]);
 				product.setSku(fields[10]);
-				product.setQuantity(fields[12]);
+				product.setQuantity(Integer.valueOf(fields[12]));
 				
 				order.addItem(product);
 				
@@ -111,17 +111,15 @@ public class AmazonImporter {
 			else {
 				Product product = new Product();
 				product.setName(fields[11]);
-				product.setPruductId(fields[2]);
+				product.setPruductId(fields[1]);
 				product.setSku(fields[10]);
-				product.setQuantity(fields[12]);
-				
-				orders.add(
-					orders
-						.stream()
-						.filter(myOrder -> myOrder.getOrderId().equals(fields[2]))
+				product.setQuantity(Integer.valueOf(fields[12]));
+					
+				orders.stream()
+						.filter(myOrder -> myOrder.getOrderId().equals(fields[0]))
 						.findAny()
-						.get()
-				);
+						.get().addItem(product);
+				
 			}
 		}
 		return orders;
