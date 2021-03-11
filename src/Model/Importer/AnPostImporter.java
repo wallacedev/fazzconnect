@@ -9,11 +9,11 @@ import Model.Product;
 
 public class AnPostImporter {
 
-	public void writeImportFile(List<Order> orders, String marketPlace, String workDirectory) {
+	public void writeImportFile(List<Order> orders, String marketPlace, String workDirectory, String importAs) {
 
 		try {
 			String batch = workDirectory+marketPlace;
-			FileWriter autoLinkFile = new FileWriter(workDirectory+"/AnPost/"+marketPlace+batch+"_autoLink.txt");
+			FileWriter autoLinkFile = new FileWriter(workDirectory+"/AnPost/"+marketPlace+batch+importAs+"_autoLink.txt");
 
 			String SEPARATOR = "|";
 

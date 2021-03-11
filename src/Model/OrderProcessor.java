@@ -88,7 +88,6 @@ public class OrderProcessor {
 				
 				if (maxQtdToSplitStr.isPresent()) {
 					
-					
 					var maxQtdToSplit = Integer.parseInt(maxQtdToSplitStr.get());
 					var qtdToSend = order.getItens().get(0).getQuantity();
 					var qtdLeft = qtdToSend;

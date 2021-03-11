@@ -49,7 +49,7 @@ public class AmazonService {
 			.collect(Collectors.toList());
 		
 		if (redLabels.size() > 0) {
-			importer.writeImportFile(redLabels, marketPlace, workDirectory);
+			importer.writeImportFile(redLabels, marketPlace, workDirectory, "red");
 			System.out.println(String.format("Market: %s - Red Label: %d", marketPlace, redLabels.size()));
 		}
 		
@@ -59,16 +59,17 @@ public class AmazonService {
 				.collect(Collectors.toList());
 		
 		if (blueLabels.size() > 0) {
-			importer.writeImportFile(blueLabels, marketPlace, workDirectory);
+			importer.writeImportFile(blueLabels, marketPlace, workDirectory, "blue");
 			System.out.println(String.format("Market: %s - Blue Label: %d", marketPlace, blueLabels.size()));
 		}
 		
 		List<Order> analiseLabels = orders.stream()
-				.filter(order -> order.getItens().size() >= 1 || order.getItens().get(0).getDispach().equals("analise"))
+				.filter(order -> order.getItens().size() > 1)
+				.filter(order -> order.getItens().get(0).getDispach().equals("analise"))
 				.collect(Collectors.toList());
 		
 		if (analiseLabels.size() > 0) {
-			importer.writeImportFile(analiseLabels, marketPlace, workDirectory);
+			importer.writeImportFile(analiseLabels, marketPlace, workDirectory, "analise");
 			System.out.println(String.format("Market: %s - Analise Label: %d", marketPlace, analiseLabels.size()));
 		}
 	}

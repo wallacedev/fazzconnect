@@ -1,0 +1,6 @@
+A|1ca|701-2120348-0891446|Simone Inglis||8097 Seed Road||Mara|British Columbia|V0E 2K0|CA|zkbjtx1bzf4pm51@marketplace.amazon.ca|7808982604||2|
+C|701-2120348-0891446|32852214607722|2 AL 0902|2|2||null|Ireland|||||||
+A|1ca|701-4857278-1483455|arthur barrientos||201-4000 Whistler Way||Whistler|BC|V8E 1H8|CA|sy0j1drytyzlmsy@marketplace.amazon.ca|6049026283||2|
+C|701-4857278-1483455|130015264934501|(1/2) 2 AL 0902 |2|2||null|Ireland|||||||
+A|1ca|701-4857278-1483455|arthur barrientos||201-4000 Whistler Way||Whistler|BC|V8E 1H8|CA|sy0j1drytyzlmsy@marketplace.amazon.ca|6049026283||2|
+C|701-4857278-1483455|130015264934502|(2/2) 2 AL 0902 |2|2||null|Ireland|||||||
