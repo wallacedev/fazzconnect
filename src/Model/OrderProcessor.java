@@ -47,6 +47,8 @@ public class OrderProcessor {
 					
 					if (packQtd.isPresent()) {
 						item.setQuantity(item.getQuantity() * packQtd.get());
+					} else {
+						item.setQuantity(item.getQuantity() * 1);
 					}
 					var newName = item.shortName.split(" ");
 					item.setShortName(item.getQuantity() + " " + newName[0] + " " + newName[1]);
@@ -98,10 +100,16 @@ public class OrderProcessor {
 					
 						labelAmount = qtdToSend / qtsMax;
 						
-						if (qtdToSend % qtsMax != 0) labelAmount =+ 1;
+						if (qtdToSend % qtsMax != 0) labelAmount += 1;
 						
 						var shortName = order.getItens().get(0).getShortName();
-						var brandModel =  String.format("%s %s", shortName.split(" ")[1], shortName.split(" ")[2]);
+						
+						var brandModel = "";
+						if (order.hasQtdOnShortName(0)) {
+							brandModel =  String.format("%s %s", shortName.split(" ")[1], shortName.split(" ")[2]);
+						} else {
+							brandModel =  String.format("%s %s", shortName.split(" ")[0], shortName.split(" ")[1]);
+						}
 						
 						for (int i = 1; i<=labelAmount; i++) {
 							

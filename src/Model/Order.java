@@ -67,6 +67,10 @@ public class Order {
 		}
 	}
 	
+	public boolean hasQtdOnShortName(int idItem) {
+		return itens.get(idItem).getShortName().split(" ").length == 3;
+	}
+	
 	@Override
 	public Object clone() {
 	    Order order = new Order();

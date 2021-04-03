@@ -13,7 +13,7 @@ public class AnPostImporter {
 
 		try {
 			String batch = workDirectory+marketPlace;
-			FileWriter autoLinkFile = new FileWriter(workDirectory+"/AnPost/"+marketPlace+batch+importAs+"_autoLink.txt");
+			FileWriter autoLinkFile = new FileWriter(workDirectory+"/AnPost/"+batch+"_autoLink_"+importAs+".txt");
 
 			String SEPARATOR = "|";
 
