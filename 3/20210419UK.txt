@@ -1,0 +1,7 @@
+order-id	order-item-id	quantity	ship-date	carrier-code	carrier-name	tracking-number	ship-method	transparency_code	ship_from_address_name	ship_from_address_line1	ship_from_address_line2	ship_from_address_line3	ship_from_address_city	ship_from_address_county	ship_from_address_state_or_region	ship_from_address_postalcode	ship_from_address_countrycode
+026-4210780-1294724			04-19-2021	Other	Royal Mail	LX878373523IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+407-1649156-4738764			04-19-2021	Other	Royal Mail	CA072571943IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+406-2915067-5657107			04-19-2021	Other	Royal Mail	LX878373510IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+203-4760083-8543528			04-19-2021	Other	Royal Mail	LX878373537IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+205-2010451-8655559			04-19-2021	Other	Royal Mail	LX878373545IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+026-8090166-4902754			04-19-2021	Other	AnPost / USPS	CP087930007IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE

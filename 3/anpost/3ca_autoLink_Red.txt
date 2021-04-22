@@ -1,0 +1,52 @@
+A|3ca|701-0358316-1617839|Stephen Booker||353 Elmwood Court||Oshawa|Ontario|L1G 7X8|CA|h0bfvvncw3t85kq@marketplace.amazon.ca|+1 (905) 571-4557||2|
+C|701-0358316-1617839|04347775811434|1 x AL1806|1|2|null|8421.99.0|CA|||||||
+A|3ca|702-7294187-2241822|stephanie dirkson||box 10||rush lake|Saskatchewan|S0H 3S0|CA|xy6lxv38fxqdhxs@marketplace.amazon.ca|3067746185||2|
+C|702-7294187-2241822|64813888525882|1 x AL0701|1|2|null|8421.99.0|CA|||||||
+A|3ca|702-9737871-5599400|Ryan Hockney||31 Pochon Ave||Port Hope|Ontario|L1A 2X8|CA|c9rxw5vglsv0n9n@marketplace.amazon.ca|7059311418||2|
+C|702-9737871-5599400|32640490644962|1 x AL0701|1|2|null|8421.99.0|CA|||||||
+A|3ca|702-0005090-5006644|Jessica||664 Main St South||Burgessville|Ontario|N0J 1C0|CA|0mhmkp9pry83662@marketplace.amazon.ca|5194245377||2|
+C|702-0005090-5006644|14946659246162|2 x AL0701|2|2|null|8421.99.0|CA|||||||
+A|3ca|702-9836544-9557001|Elaina Stewart||711 wallis drive||peterborough|Ontario|K9J6P3|CA|19l21ltr4t9yb2n@marketplace.amazon.ca|7057688291||2|
+C|702-9836544-9557001|35870078015178|1 x AL0701 (2 pk)|1|2|null|8421.99.0|CA|||||||
+A|3ca|702-5519563-1197033|Catharine Morash||91 Mountain Road||Grimsby|Ontario|L3M 4E7|CA|dbvs2bly3sz1675@marketplace.amazon.ca|9059280578||2|
+C|702-5519563-1197033|43179533556282|2 x AL0701 (2 pk)|2|2|null|8421.99.0|CA|||||||
+A|3ca|701-0051832-8468255|Roger Chiasson||698 Lakeside Drive||Labrador City|Newfoundland|A2V 1B8|CA|fv7tw7d1tvzr7b2@marketplace.amazon.ca|17092801795||2|
+C|701-0051832-8468255|69226620760146|1 x AL 0506 2|1|2|null|8421.99.0|CA|||||||
+A|3ca|701-5898322-5234617|Donald Flack||Aligned Capital Partners|300-1001 Champlain Avenue|Burlington|Ontario|L7L 5Z4|CA|9gyjp74x884kk3v@marketplace.amazon.ca|905-320-9299||2|
+C|701-5898322-5234617|701-5898322-52346170|1/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|701-5898322-5234617|Donald Flack||Aligned Capital Partners|300-1001 Champlain Avenue|Burlington|Ontario|L7L 5Z4|CA|9gyjp74x884kk3v@marketplace.amazon.ca|905-320-9299||2|
+C|701-5898322-5234617|701-5898322-52346171|2/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|701-1898641-0913041|Sarah Bell||5993 County Road 13||Everett|Ontario|L0M 1J0|CA|8hlxvx2dqctr51n@marketplace.amazon.ca|7057967543||2|
+C|701-1898641-0913041|701-1898641-09130410|1/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|701-1898641-0913041|Sarah Bell||5993 County Road 13||Everett|Ontario|L0M 1J0|CA|8hlxvx2dqctr51n@marketplace.amazon.ca|7057967543||2|
+C|701-1898641-0913041|701-1898641-09130411|2/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|701-1756198-4152235|Michel Morin||296 MAIN ST||MADAWASKA|MAINE|04756-1226|US|msl36jtgpm3plms@marketplace.amazon.ca|+1 415-419-8616 ext. 80840||2|
+C|701-1756198-4152235|701-1756198-41522350|1/2 - AL0506 (4 pk)|1|2|null||US|||||||
+A|3ca|701-1756198-4152235|Michel Morin||296 MAIN ST||MADAWASKA|MAINE|04756-1226|US|msl36jtgpm3plms@marketplace.amazon.ca|+1 415-419-8616 ext. 80840||2|
+C|701-1756198-4152235|701-1756198-41522351|2/2 - AL0506 (4 pk)|1|2|null||US|||||||
+A|3ca|702-8279174-8319442|Duane antle||1 Coffens Place||Come By Chance|Newfoundland|A0B 1N0|CA|t243p14nqrglkt9@marketplace.amazon.ca|17095423494||2|
+C|702-8279174-8319442|702-8279174-83194420|1/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|702-8279174-8319442|Duane antle||1 Coffens Place||Come By Chance|Newfoundland|A0B 1N0|CA|t243p14nqrglkt9@marketplace.amazon.ca|17095423494||2|
+C|702-8279174-8319442|702-8279174-83194421|2/2 - AL0506 (4 pk)|1|2|null||CA|||||||
+A|3ca|702-1142583-3437855|Verena Brunner||#2710 County Rd 22||Bath|Ontario|K0H 1G0|CA|1h36wjt3x8kdq47@marketplace.amazon.ca|6133544631||2|
+C|702-1142583-3437855|22878198719706|1 x Miele Rinse|1|2|null||CA|||||||
+A|3ca|702-3439806-7905824|chantel kaufmann||5331 Boswell cres||Regina|Saskatchewan|S4X 4P4|CA|g56w28q18k3z7g6@marketplace.amazon.ca|3069499731||2|
+C|702-3439806-7905824|43932561055802|1 x Miele JMF|1|2|null||CA|||||||
+A|3ca|702-0366373-5353036|Jean-Luc Roche||42 Overbank Crescent||Toronto|Ontario|M3A1W2|CA|p7tjgb4txgrm7sq@marketplace.amazon.ca|416-446-7779||2|
+C|702-0366373-5353036|62767712575706|1 x Miele JMF|1|2|null||CA|||||||
+A|3ca|701-2183211-9197050|Wini CHIU||20 Fred Varley Drive Suite 308||Unionville|Ontario|L3R 1S4|CA|2bs98bs22qn98v6@marketplace.amazon.ca|6472440678||2|
+C|701-2183211-9197050|60330894719914|1 x Miele 60 tab|1|2|null||CA|||||||
+A|3ca|702-1142583-3437855|Verena Brunner||#2710 County Rd 22||Bath|Ontario|K0H 1G0|CA|1h36wjt3x8kdq47@marketplace.amazon.ca|6133544631||2|
+C|702-1142583-3437855|58357881644834|1 x Miele 60 tab|1|2|null||CA|||||||
+A|3ca|702-1726966-0791422|Lo Kwok Fung Anthony||150 Alton Towers Circle|Apt. 1904|Scarborough|Ontario|M1V 4X7|CA|qmjs8qbkb4bh1pp@marketplace.amazon.ca|416 298 5949||2|
+C|702-1726966-0791422|27327780457794|1 x Miele Hepa 50|1|2|null||CA|||||||
+A|3ca|702-2224296-7602618|Sharon Ling||10607 130 Street NW||Edmonton|Alberta|T5N 1Y1|CA|t3sdj95kdwpt5zz@marketplace.amazon.ca|7806052200||2|
+C|702-2224296-7602618|55826659603874|1 x Miele Hepa 50|1|2|null||CA|||||||
+A|3ca|702-8018201-9619422|Christiane Pellerin||429 Notre Dame Street West Unit 24||Azilda|Ontario|P0M 1B0|CA|1q1z4wx7wvjmg11@marketplace.amazon.ca|7055872114||2|
+C|702-8018201-9619422|65720343798018|1 x Spa Starter Kit Chemical|1|2|null||CA|||||||
+A|3ca|702-8936729-3490617|Kate Murray||2100 Bloomfield Drive||Oakville|Ontario|L6M 3W4|CA|8d31s8khqnpk7pd@marketplace.amazon.ca|9055991927||2|
+C|702-8936729-3490617|40276986010314|1 x Spa Starter Kit Chemical|1|2|null||CA|||||||
+A|3ca|702-9906284-9541826|Donald Logan||391 Haig Avenue||Renfrew|Ontario|K7V 3J6|CA|q9t6wdj7yr5j8d2@marketplace.amazon.ca|6134331918||2|
+C|702-9906284-9541826|01546625230866|1 x Spa Starter Kit Chemical|1|2|null||CA|||||||
+A|3ca|702-1720831-3115416|Andre Hoffmann||373 Griesbach School Road NW||Edmonton|Alberta|T5E 6P6|CA|dw96nx8gghn7w2h@marketplace.amazon.ca|7809523727||2|
+C|702-1720831-3115416|22192965620498|1 x YONEX super grap Black|1|2|null||CA|||||||
