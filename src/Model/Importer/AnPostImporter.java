@@ -118,7 +118,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_VALUE
-					sb.append("");
+					sb.append(getItemValue(orders.get(i).getShipCountry()));
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_CUSTOMS_TARIFF
@@ -149,6 +149,13 @@ public class AnPostImporter {
 		}
 	}
 	
+	private static String getItemValue(String shipCountry) {
+		shipCountry = shipCountry.toLowerCase();
+		if (shipCountry.equals("ca") || shipCountry.equals("canada")) 
+			return "10";
+		else return "";
+	}
+
 	public static String getCustomTariff(String productName) {
 		String CUSTOM_TARIF = "8421.99.0";
 		String sulfix = "al";

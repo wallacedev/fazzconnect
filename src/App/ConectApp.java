@@ -383,7 +383,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// CONTENTS_ITEM_VALUE
-				sb.append(amazonFileList.get(i).getPriceDesignation());
+				sb.append(getItemValue(amazonFileList.get(i).getShipCountry()));
 				sb.append(SEPARATOR);
 
 				// CONTENTS_CUSTOMS_TARIFF
@@ -520,5 +520,12 @@ public class ConectApp {
 			amazonFileList.add(amazonFile);
 		}
 		return amazonFileList;
+	}
+	
+	private static String getItemValue(String shipCountry) {
+		shipCountry = shipCountry.toLowerCase();
+		if (shipCountry.equals("ca") || shipCountry.equals("canada")) 
+			return "10";
+		else return "";
 	}
 }
