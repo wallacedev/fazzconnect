@@ -13,7 +13,7 @@ import Model.Importer.AnPostImporter;
 import Model.Importer.ReportImporter;
 import lombok.Getter;
 
-public class AmazonService {
+public class AmazonService implements BaseService{
 	
 	private final AmazonUploadConverter amazonUploadConverter;
 	

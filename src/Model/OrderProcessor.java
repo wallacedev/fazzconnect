@@ -35,6 +35,14 @@ public class OrderProcessor {
 			}
 		return orders;
 	}
+	
+	public static ArrayList<Order> setGenericDispatch(ArrayList<Order> orders) {
+		for (Order order : orders)
+			for (Product item : order.getItens()) {
+				item.setDispach("red");
+			}
+		return orders;
+	}
 
 	public static ArrayList<Order> setProductQuantity(ArrayList<Order> orders) {
 		for (Order order : orders)
@@ -52,6 +60,17 @@ public class OrderProcessor {
 					}
 					var newName = item.shortName.split(" ");
 					item.setShortName(item.getQuantity() + " " + newName[0] + " " + newName[1]);
+				}
+			}
+		return orders;
+	}
+	
+	public static ArrayList<Order> setOldProductQuantity(ArrayList<Order> orders) {
+		for (Order order : orders)
+			for (Product item : order.getItens()) {
+				
+				if (item.getQuantity() > 1 ) {
+					item.setName(String.format("%d x %s", item.getQuantity(), item.getName()));
 				}
 			}
 		return orders;

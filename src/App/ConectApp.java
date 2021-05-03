@@ -36,6 +36,7 @@ public class ConectApp {
 		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
 		foldersToCreate.add("dispatch");
+		foldersToCreate.add("email-ebay");
 		
 		var option = 1;
 		
@@ -134,13 +135,21 @@ public class ConectApp {
 	}
 
 	private static void createAmazonDispachFile(String marketPlace) throws Exception {
-		AmazonService amazomService = new AmazonService(workDirectory);
 		
-		ArrayList <Order> amazonOrders = amazomService.importOrdersFromFileToMemory(marketPlace);
-		
-		ArrayList <ReportObject> amazonTrackNumbers = amazomService.getTrackNumbersFromReport();
-		
-		amazomService.writeAmazonDispathFile(amazonOrders, amazonTrackNumbers);
+		if (marketPlaceExists(marketPlace)) {
+			AmazonService amazomService = new AmazonService(workDirectory);
+			
+			ArrayList <Order> amazonOrders = amazomService.importOrdersFromFileToMemory(marketPlace);
+			
+			ArrayList <ReportObject> amazonTrackNumbers = amazomService.getTrackNumbersFromReport();
+			
+			amazomService.writeAmazonDispathFile(amazonOrders, amazonTrackNumbers);
+		}
+	}
+
+	private static boolean marketPlaceExists(String marketPlace) {
+		File file = new File(workDirectory+"/amazon/"+marketPlace+".txt");
+		return file.exists();
 	}
 
 	private static void createEbayDispachFile() throws Exception {
@@ -157,6 +166,8 @@ public class ConectApp {
 		EbayService ebayService = new EbayService(workDirectory);
 		
 		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
+		
+		ebayService.processOrders();
 		
 		ebayService.createAnpostFile(ebayOrders, "eb");
 		
