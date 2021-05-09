@@ -57,11 +57,11 @@ public class EbayUploadConverter {
 				content.append(SEPARATOR);
 				content.append(ReportObject.getEbayCarrier());
 				content.append(SEPARATOR);
-				content.append(getTrackNumber(order.getOrderId(), ebayTrackNumbers));
+				content.append(getTrackNumbers(order.getOrderId(), ebayTrackNumbers));
 				content.append("\n");	
 			}
 			
-			FileWriter file = new FileWriter(workDirectory+"/ebayDispatch.csv");
+			FileWriter file = new FileWriter(String.format("%s/ebayDispatch%s.csv", workDirectory, workDirectory));
 			file.write(title.toString());
 			file.write(content.toString());
 			file.close();
@@ -72,13 +72,19 @@ public class EbayUploadConverter {
 		}
 	}
 	
-	private String getTrackNumber (String idOrder, ArrayList<ReportObject> ebayTrackNumbers) throws Exception {
-		return Optional.ofNullable(ebayTrackNumbers
-		.stream()
-		.filter(ebayTrackNumber -> ebayTrackNumber.getIdOrder().equals(idOrder))
-		.findAny()
-		.get()
-		.getTrackNumber())
-				.orElseThrow(() -> new Exception("Track number not found"));
+	private String getTrackNumbers (String idOrder, ArrayList<ReportObject> ebayTrackNumbers) throws Exception {
+		
+		var results =  Optional.ofNullable(
+				 ebayTrackNumbers
+				 .stream()
+				 .filter(ebayTrackNumber -> ebayTrackNumber.getIdOrder().equals(idOrder))
+				 .collect(Collectors.toList()))	
+		.orElseThrow(() -> new Exception("Track number not found"));
+		
+		String trackNumbers = "";
+		for (ReportObject result : results) {
+			trackNumbers += result.getTrackNumber() + " ";
+		}
+		return trackNumbers;
 	}
 }

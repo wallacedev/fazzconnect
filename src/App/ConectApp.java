@@ -42,6 +42,8 @@ public class ConectApp {
 		foldersToCreate.add("amazon");
 		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
+		foldersToCreate.add("ebay-email");
+		
 		//String workDirectory = new String();
 		do {
 			if (workDirectory.equals("")) {
@@ -428,6 +430,8 @@ public class ConectApp {
 		
 		if (sub.isPresent()) {
 			if (sulfix.equals(sub.get())) {
+				return true;
+			} else if (shortName.charAt(1) == '/' && shortName.substring(6, 8).toLowerCase().equals(sulfix)) {
 				return true;
 			}
 		} 
