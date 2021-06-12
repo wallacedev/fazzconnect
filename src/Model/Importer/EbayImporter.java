@@ -93,7 +93,7 @@ public class EbayImporter {
 			
 			order.setShipCountry(Util.getShortCountry(fields[19]));
 			
-			order.setIdTransaction(fields[52]);
+			order.setIdTransaction(fields[53]);
 			
 			order.setSallesChannel("ebay");
 			
