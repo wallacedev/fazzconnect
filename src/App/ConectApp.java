@@ -389,7 +389,7 @@ public class ConectApp {
 				sb.append(SEPARATOR);
 
 				// CONTENTS_CUSTOMS_TARIFF
-				sb.append(getCustomTariff(amazonFileList.get(i).getProductName()));
+				sb.append(getCustomTariff(amazonFileList.get(i).getProductName(), amazonFileList.get(i).getShipCountry()));
 				sb.append(SEPARATOR);
 
 				// CONTENTS_COUNTRY_ORIGIN
@@ -415,14 +415,31 @@ public class ConectApp {
 		}
 	}
 	
-	public static String getCustomTariff(String productName) {
-		String CUSTOM_TARIF = "8421.99.0";
-		String sulfix = "al";
+	public static String getCustomTariff(String productName, String country) {
 		
-		if (isSulfixMatch(productName, sulfix))
-			return CUSTOM_TARIF;
-		else
-			return "";
+		String FILTERS_GERENAL_CUSTOM_TARIF = "8421.99.0";
+		String FILTERS_UK_CUSTOM_TARIF = "842121";
+		String TAB_SALT_CUSTOM_TARIFF = "8450.90.00";
+		String P_AND_M_CUSTOM_TARIF = "3304.99.0000";
+		
+		if (productName.toLowerCase().contains("filter")) {
+			if (country.toLowerCase().equals("uk") 
+				|| country.toLowerCase().equals("gb")) {
+				
+				return FILTERS_UK_CUSTOM_TARIF;
+			}
+			else return FILTERS_GERENAL_CUSTOM_TARIF;
+		}
+		
+		if (productName.toLowerCase().contains("p&m")) {
+			return P_AND_M_CUSTOM_TARIF;
+		}
+		
+		if (productName.toLowerCase().contains("*miele")) {
+			return TAB_SALT_CUSTOM_TARIFF;
+		}
+		
+		return "";
 	}
 
 	private static boolean isSulfixMatch(String shortName, String sulfix) {
