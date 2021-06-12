@@ -526,10 +526,7 @@ public class ConectApp {
 		return amazonFileList;
 	}
 	
-	private static String getItemValue(String shipCountry) {
-		shipCountry = shipCountry.toLowerCase();
-		if (shipCountry.equals("ca") || shipCountry.equals("canada")) 
-			return "10";
-		else return "";
+	private static String getItemValue(String shipCountry) { 
+	    return "10";
 	}
 }
