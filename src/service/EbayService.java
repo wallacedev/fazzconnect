@@ -57,6 +57,7 @@ public class EbayService implements BaseService {
 	public void writeEbayDispathFile(ArrayList<Order> ebayOrders, ArrayList<ReportObject> ebayTrackNumbers) {
 		EbayUploadConverter converter = new EbayUploadConverter(workDirectory);   
 		converter.writeEbayDispatchFile(ebayOrders, ebayTrackNumbers);
+		converter.writeEbayResumeDispatch(ebayOrders, ebayTrackNumbers);
 		
 	}
 	

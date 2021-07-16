@@ -48,13 +48,15 @@ public class OrderProcessor {
 		for (Order order : orders)
 			for (Product item : order.getItens()) {
 				
-				if (!item.getShortName().equals("") && item.shortName.split(" ").length > 2) {
+				if (!item.getShortName().equals("")) {
 					
 					// Considering the short name layout: Brand Model PKQTD
-					var packQtd = Optional.ofNullable(Integer.valueOf(item.shortName.split(" ")[2]));
+					var packQtd = Optional.empty();
+					if (item.shortName.split(" ").length > 2)
+						 packQtd = Optional.ofNullable(Integer.valueOf(item.shortName.split(" ")[2]));
 					
 					if (packQtd.isPresent()) {
-						item.setQuantity(item.getQuantity() * packQtd.get());
+						item.setQuantity(item.getQuantity() * (int)packQtd.get());
 					} else {
 						item.setQuantity(item.getQuantity() * 1);
 					}
@@ -77,25 +79,41 @@ public class OrderProcessor {
 	}
 	
 	public static ArrayList<Order> setCustomTariff(ArrayList<Order> orders) {
-		String CUSTOM_TARIF = "8421.99.0";
-		String sulfix = "al";
 		
 		for (Order order : orders)
 			for (Product item : order.getItens())
-				if (isSulfixMatch(item.getShortName(), sulfix))
-					item.setCustomTarif(CUSTOM_TARIF);
+				item.setCustomTarif(getCustomTariff(item.getShortName(), order.getShipCountry()));
 	
 				
 		return orders;
 	}
+	
+	public static String getCustomTariff(String productName, String country) {
+		String FILTERS_GERENAL_CUSTOM_TARIF = "8421.99.0";
+		String FILTERS_UK_CUSTOM_TARIF = "842121";
+		String TAB_SALT_CUSTOM_TARIFF = "8450.90.00";
+		String P_AND_M_CUSTOM_TARIF = "3304.99.0000";
 
-	private static boolean isSulfixMatch(String shortName, String sulfix) {
-		Optional<String> sub = Optional.ofNullable(shortName.substring(0, 2).toLowerCase());
-		
-		if (sub.isPresent()) {
-			return sulfix.equals(sub.get());
-		} else return false;
+		if (productName.toLowerCase().contains("filter")) {
+			if (country.toLowerCase().equals("uk") 
+				|| country.toLowerCase().equals("gb")) {
+
+				return FILTERS_UK_CUSTOM_TARIF;
+			}
+			else return FILTERS_GERENAL_CUSTOM_TARIF;
+		}
+
+		if (productName.toLowerCase().contains("p&m")) {
+			return P_AND_M_CUSTOM_TARIF;
+		}
+
+		if (productName.toLowerCase().contains("*miele")) {
+			return TAB_SALT_CUSTOM_TARIFF;
+		}
+
+		return "";
 	}
+
 
 	public static ArrayList<Order> split(ArrayList<Order> orders) {
 		

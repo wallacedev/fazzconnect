@@ -1,0 +1,8 @@
+A|testeca|701-3062916-3853010|Wayne Ashton||PO Box 594||Vegreville|Alberta|T9C 1R6|CA|4q4ndl830zj2slc@marketplace.amazon.ca|780.603.7277||2|
+C|701-3062916-3853010|49410442304386|2 *Miele 60-tab|0|2|10|8450.90.00|Ireland|||||||
+A|testeca|702-3793425-3539440|julie wilson||850 tanager avenue||burlington|Ontario|L7T2Y2|CA|hnz8fwxvrjp1l9w@marketplace.amazon.ca|9054663962||2|
+C|702-3793425-3539440|50427800730738|2 *Miele 60-tab|0|2|10|8450.90.00|Ireland|||||||
+A|testeca|702-3793425-3539441|julie wilson||850 tanager avenue||burlington|Ontario|L7T2Y2|CA|hnz8fwxvrjp1l9w@marketplace.amazon.ca|9054663962||2|
+C|702-3793425-3539441|504278007307381|(1/2) 2 *Miele 60-Tab |0|2|10|8450.90.00|Ireland|||||||
+A|testeca|702-3793425-3539441|julie wilson||850 tanager avenue||burlington|Ontario|L7T2Y2|CA|hnz8fwxvrjp1l9w@marketplace.amazon.ca|9054663962||2|
+C|702-3793425-3539441|504278007307382|(2/2) 2 *Miele 60-Tab |0|2|10|8450.90.00|Ireland|||||||

@@ -17,6 +17,8 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 	public void writeAmazonDispatchFile(ArrayList<Order> amazonOrders, ArrayList<ReportObject> reportObjects) {
 		try {
 			String SEPARATOR = "\t";
+			
+			var dispatchdate = reportObjects.get(0).getDate();
 
 			// Writing file title
 			StringBuffer title = new StringBuffer();
@@ -61,59 +63,62 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 			
 			for (Order order : amazonOrders) {
 				
-				content.append(order.getOrderId());
-				content.append(SEPARATOR);
+				if (!getTrackNumbers(order.getOrderId(), reportObjects).isEmpty()) {
 				
-				content.append(order.getItens().get(0).getPruductId());
-				content.append(SEPARATOR);
-				
-				content.append("");
-				content.append(SEPARATOR);
-				
-				content.append(getDate(order.getOrderId(), reportObjects));
-				content.append(SEPARATOR);
-				
-				content.append("Other");
-				content.append(SEPARATOR);
-				
-				content.append(ReportObject.getCarrier(order.getShipCountry()));
-				content.append(SEPARATOR);
-				
-				content.append(getTrackNumber(order.getOrderId(), reportObjects));
-				content.append(SEPARATOR);
-				
-				content.append("");
-				content.append(SEPARATOR);
-				
-				content.append("");
-				content.append(SEPARATOR);
-				
-				content.append("FAZZ LTD");
-				content.append(SEPARATOR);
-				
-				content.append("10C Boeing Road");
-				content.append(SEPARATOR);
-				
-				content.append("Airways Industrial Estate");
-				content.append(SEPARATOR);
-				
-				content.append("");
-				content.append(SEPARATOR);
-				
-				content.append("Dublin 17");
-				content.append(SEPARATOR);
-				
-				content.append("Dublin");
-				content.append(SEPARATOR);
-				
-				content.append("Dublin");
-				content.append(SEPARATOR);
-				
-				content.append("D17 E167");
-				content.append(SEPARATOR);
-				
-				content.append("IE");
-				content.append("\n");
+					content.append(order.getOrderId());
+					content.append(SEPARATOR);
+					
+					content.append(order.getItens().get(0).getPruductId());
+					content.append(SEPARATOR);
+					
+					content.append("");
+					content.append(SEPARATOR);
+					
+					content.append(dispatchdate);
+					content.append(SEPARATOR);
+					
+					content.append("Other");
+					content.append(SEPARATOR);
+					
+					content.append(ReportObject.getCarrier(order.getShipCountry()));
+					content.append(SEPARATOR);
+					
+					content.append(getTrackNumbers(order.getOrderId(), reportObjects));
+					content.append(SEPARATOR);
+					
+					content.append("");
+					content.append(SEPARATOR);
+					
+					content.append("");
+					content.append(SEPARATOR);
+					
+					content.append("FAZZ LTD");
+					content.append(SEPARATOR);
+					
+					content.append("10C Boeing Road");
+					content.append(SEPARATOR);
+					
+					content.append("Airways Industrial Estate");
+					content.append(SEPARATOR);
+					
+					content.append("");
+					content.append(SEPARATOR);
+					
+					content.append("Dublin 17");
+					content.append(SEPARATOR);
+					
+					content.append("Dublin");
+					content.append(SEPARATOR);
+					
+					content.append("Dublin");
+					content.append(SEPARATOR);
+					
+					content.append("D17 E167");
+					content.append(SEPARATOR);
+					
+					content.append("IE");
+					content.append("\n");
+				}
 			}
 			
 			String batch = amazonOrders.get(0).getBatch();

@@ -64,8 +64,8 @@ public class AmazonService implements BaseService{
 		}
 		
 		List<Order> analiseLabels = orders.stream()
-				.filter(order -> order.getItens().size() > 1)
-				.filter(order -> order.getItens().get(0).getDispach().equals("analise"))
+				.filter(order -> order.getItens().size() > 1 
+						|| order.getItens().get(0).getDispach().equals("analise"))
 				.collect(Collectors.toList());
 		
 		if (analiseLabels.size() > 0) {

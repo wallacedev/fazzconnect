@@ -77,35 +77,35 @@ public class EbayImporter {
 			
 			order.setBuyerEmail(sanitize(fields[4]));
 			
-			order.setRecipientName(sanitize(fields[12]));
+			order.setRecipientName(sanitize(fields[14]));
 			
-			order.setBuyerPhoneNumber(sanitize(fields[13]));
+			order.setBuyerPhoneNumber(sanitize(fields[15]));
 			
-			order.setShipAddress1(sanitize(fields[14]));
+			order.setShipAddress1(sanitize(fields[16]));
 			
-			order.setShipAddress2(sanitize(fields[15]));
+			order.setShipAddress2(sanitize(fields[17]));
 			
-			order.setShipCity(sanitize(fields[16]));
+			order.setShipCity(sanitize(fields[18]));
 			
-			order.setShipState(sanitize(fields[17]));
+			order.setShipState(sanitize(fields[19]));
 			
-			order.setShipPostalCode(sanitize(fields[18]));
+			order.setShipPostalCode(sanitize(fields[20]));
 			
-			order.setShipCountry(Util.getShortCountry(fields[19]));
+			order.setShipCountry(Util.getShortCountry(fields[21]));
 			
-			order.setIdTransaction(fields[52]);
+			order.setIdTransaction(fields[60]);
 			
 			order.setSallesChannel("ebay");
 			
 			Product product = new Product();
-			product.setPruductId(sanitize(fields[20]));
+			product.setPruductId(sanitize(fields[22]));
 
-			var fullName = fields[21];
-			var shortName = fields[22]; 
+			var fullName = fields[23];
+			var shortName = fields[24]; 
 			
 			product.setName(getProductName(shortName, fullName));
 						
-			product.setQuantity(Integer.valueOf(sanitize(fields[24])));
+			product.setQuantity(Integer.valueOf(sanitize(fields[26])));
 			
 			order.addItem(product);
 			

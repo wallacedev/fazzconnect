@@ -106,7 +106,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_NO_UNITS
-					sb.append(item.getQuantity());
+					sb.append("0");
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_WEIGHT
@@ -114,7 +114,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_VALUE
-					sb.append("");
+					sb.append(getItemValue());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_CUSTOMS_TARIFF
@@ -134,14 +134,20 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 					sb.append(SEPARATOR);
 					sb.append("\n");
+					
+					autoLinkFile.write(sb.toString());
 				}
 
-				autoLinkFile.write(sb.toString());
+				
 			}
 			autoLinkFile.close();
 		} catch (IOException e) {
 			System.out.println("AnPost File coudn't be wrote.");
 			e.printStackTrace();
 		}
+	}
+	
+	private String getItemValue() { 
+	    return "10";
 	}
 }
