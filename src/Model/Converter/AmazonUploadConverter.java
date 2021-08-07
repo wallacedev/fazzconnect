@@ -68,7 +68,7 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 					content.append(order.getOrderId());
 					content.append(SEPARATOR);
 					
-					content.append(order.getItens().get(0).getPruductId());
+					content.append("");
 					content.append(SEPARATOR);
 					
 					content.append("");

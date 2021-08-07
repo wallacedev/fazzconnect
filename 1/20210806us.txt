@@ -1,0 +1,9 @@
+order-id	order-item-id	quantity	ship-date	carrier-code	carrier-name	tracking-number	ship-method	transparency_code	ship_from_address_name	ship_from_address_line1	ship_from_address_line2	ship_from_address_line3	ship_from_address_city	ship_from_address_county	ship_from_address_state_or_region	ship_from_address_postalcode	ship_from_address_countrycode
+114-4853049-6498651			08-06-2021	Other	AnPost / USPS	LX878420719IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+112-9393870-3779413			08-06-2021	Other	AnPost / USPS	LX878420807IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+113-3355903-9025041			08-06-2021	Other	AnPost / USPS	LX878420775IE LX878420767IE LX878420753IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+112-0565076-7350616			08-06-2021	Other	AnPost / USPS	LX878420798IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+113-8830691-1569002			08-06-2021	Other	AnPost / USPS	LX878420736IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+112-1011116-7309017			08-06-2021	Other	AnPost / USPS	LX878420740IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+112-7278283-8880254			08-06-2021	Other	AnPost / USPS	LX878420784IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
+113-4292463-8396215			08-06-2021	Other	AnPost / USPS	LX878420722IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
