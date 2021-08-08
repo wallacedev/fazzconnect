@@ -18,7 +18,7 @@ public class AmazonUploadConverter implements BaseUploadConverter{
 		try {
 			String SEPARATOR = "\t";
 			
-			var dispatchdate = reportObjects.get(0).getDate();
+			var dispatchdate = reportObjects.get(0).getConvertedDate();
 
 			// Writing file title
 			StringBuffer title = new StringBuffer();
