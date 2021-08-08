@@ -30,7 +30,7 @@ public class ConectApp {
 		foldersToCreate.add("ebay");
 		foldersToCreate.add("anpost");
 		foldersToCreate.add("dispatch");
-		foldersToCreate.add("email-ebay");
+		foldersToCreate.add("ebay-email");
 		
 		var option = 1;
 		
