@@ -102,11 +102,12 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_DESCRIPTION
+					sb.append("...");
 					sb.append(item.getShortName());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_NO_UNITS
-					sb.append("0");
+					sb.append(item.getQuantity());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_WEIGHT

@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -19,17 +21,9 @@ public class ConectApp {
 
 	private static String batch = "";
 	private static String workDirectory = "";
-	private static ArrayList<String> marketPlaces;
 	private static ArrayList<String> foldersToCreate;
 	
 	public static void main(String[] args) {
-		
-		//TODO read it from properties file
-		marketPlaces = new ArrayList<String>();
-		marketPlaces.add("us");
-		marketPlaces.add("uk");
-		marketPlaces.add("ca");
-		marketPlaces.add("au");
 		
 		foldersToCreate = new ArrayList<String>();
 		foldersToCreate.add("amazon");
@@ -115,7 +109,7 @@ public class ConectApp {
 	}
 	
 	private static void createAllAmazonDispachFile() throws Exception {
-		for (String marketPlace: marketPlaces) {
+		for (String marketPlace: getAmazonMarketPlaces()) {
 			createAmazonDispachFile(marketPlace);
 		}
 	}
@@ -184,11 +178,8 @@ public class ConectApp {
 		if (marketPlaceOption.equals("all")) {
 			convertAllAmazon();
 			
-		}else if (marketPlaces.contains(marketPlaceOption)) {
+		} else {
 			convertAmazon(marketPlaceOption);
-			
-		}else {
-			System.out.println("Invalid option.");
 		}
 		
 	}
@@ -204,9 +195,21 @@ public class ConectApp {
 	}
 	
 	private static void convertAllAmazon() throws Exception {
-		for (String marketPlace: marketPlaces) {
+		for (String marketPlace: getAmazonMarketPlaces()) {
 			convertAmazon(marketPlace);
 		}
 		
+	}
+	
+	private static List<String> getAmazonMarketPlaces() {
+		File files = new File(String.format("%s/amazon/", workDirectory));
+
+		List<String> markets = new ArrayList<String>();
+		
+		for (String fileName : files.list()) {
+			markets.add(fileName.replace(".txt", ""));
+		}
+		
+		return markets;		
 	}
 }
