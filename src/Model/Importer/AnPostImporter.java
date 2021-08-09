@@ -115,15 +115,17 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_VALUE
+
 					sb.append(getItemValue());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_CUSTOMS_TARIFF
 					sb.append(item.getCustomTarif());
+
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_COUNTRY_ORIGIN
-					sb.append("Ireland");
+					sb.append(orders.get(i).getShipCountry());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_CURRENCY
@@ -150,5 +152,6 @@ public class AnPostImporter {
 	
 	private String getItemValue() { 
 	    return "10";
+
 	}
 }

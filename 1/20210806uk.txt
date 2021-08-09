@@ -1,3 +1,0 @@
-order-id	order-item-id	quantity	ship-date	carrier-code	carrier-name	tracking-number	ship-method	transparency_code	ship_from_address_name	ship_from_address_line1	ship_from_address_line2	ship_from_address_line3	ship_from_address_city	ship_from_address_county	ship_from_address_state_or_region	ship_from_address_postalcode	ship_from_address_countrycode
-203-0181972-2826725			08-06-2021	Other	Royal Mail	CA072575070IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE
-407-7452461-2757133			08-06-2021	Other	Royal Mail	LX878420705IE			FAZZ LTD	10C Boeing Road	Airways Industrial Estate		Dublin 17	Dublin	Dublin	D17 E167	IE

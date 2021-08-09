@@ -1,25 +1,17 @@
 package App;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
-import Model.AmazonFile;
 import Model.Order;
 import Model.ReportObject;
-import Util.Util;
 import service.AmazonService;
 import service.EbayService;
 
 public class ConectApp {
 
-	private static String batch = "";
 	private static String workDirectory = "";
 	private static ArrayList<String> foldersToCreate;
 	

@@ -3,7 +3,6 @@ package Model.Importer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 import Model.Order;
@@ -59,7 +58,7 @@ public class EbayImporter {
 		return lines;
 	}
 	
-	private ArrayList<Order> getOrders(ArrayList<String> lines) throws Exception {
+private ArrayList<Order> getOrders(ArrayList<String> lines) throws Exception {
 		
 		ArrayList<Order> orders = new ArrayList<Order>();
 		

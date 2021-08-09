@@ -106,8 +106,5 @@ public class EbayUploadConverter implements BaseUploadConverter{
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 	}
-	
-	
 }
