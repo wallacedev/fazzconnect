@@ -1,1 +1,0 @@
-java -jar app/FazzConnect2.5.jar

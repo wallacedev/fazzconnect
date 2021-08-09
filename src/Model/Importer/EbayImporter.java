@@ -3,7 +3,6 @@ package Model.Importer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 import Model.Order;
@@ -105,7 +104,7 @@ private ArrayList<Order> getOrders(ArrayList<String> lines) throws Exception {
 			
 			product.setName(getProductName(shortName, fullName));
 						
-			product.setQuantity(Integer.valueOf(sanitize(fields[26])).toString());
+			product.setQuantity(Integer.valueOf(sanitize(fields[26])));
 			
 			order.addItem(product);
 			

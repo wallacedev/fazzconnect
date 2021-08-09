@@ -1,49 +1,21 @@
 package Model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class Product {
+	
 	String sku;
 	String assin;
 	String pruductId;
 	String name;
 	String shortName;
-	String defautCarrier;
-	String quantity;
+	String dispach;
+	int quantity;
+	String customTarif;
 	
-	public Product () {
-		
-	}
-
-	public String getSku() {
-		return sku;
-	}
-
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
-
-	public String getAssin() {
-		return assin;
-	}
-
-	public void setAssin(String assin) {
-		this.assin = assin;
-	}
-
-	public String getPruductId() {
-		return pruductId;
-	}
-
-	public void setPruductId(String pruductId) {
-		this.pruductId = pruductId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getShortName() {
 		if (shortName == null) {
@@ -54,31 +26,28 @@ public class Product {
 		}
 	}
 
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
-	}
-
-	public String getDefautCarrier() {
-		return defautCarrier;
-	}
-
-	public void setDefautCarrier(String defautCarrier) {
-		this.defautCarrier = defautCarrier;
-	}
-
-	public String getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
 	public String getNameWithQuantity() {
-		return String.format("%s X %s", this.quantity, this.getShortName());
+		return String.format("%s %s", this.quantity, this.getShortName());
 		
 	}
 	
-	
-	
+	@Override
+	public Object clone() {
+		Product product = new Product();
+	    try {
+	    	product = (Product) super.clone();
+	    } catch (CloneNotSupportedException e) {
+	        
+	    }
+	    product.sku = this.sku;
+		product.assin = this.assin;
+		product.pruductId = this.pruductId;
+		product.name = this.name;
+		product.shortName = this.shortName;
+		product.dispach = this.dispach;
+		product.quantity = this.quantity;
+		product.customTarif = this.customTarif;
+		
+		return product;
+	}
 }
