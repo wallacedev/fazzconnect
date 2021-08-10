@@ -31,6 +31,18 @@ public class Product {
 		
 	}
 	
+	public String getModel() {
+		if (hasQtdOnShortName()) {
+			return shortName.split(" ")[2];
+		} else {
+			return shortName.split(" ")[1];
+		}
+	}
+	
+	public boolean hasQtdOnShortName() {
+		return shortName.split(" ").length == 3;
+	}
+	
 	@Override
 	public Object clone() {
 		Product product = new Product();

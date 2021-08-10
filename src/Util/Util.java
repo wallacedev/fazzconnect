@@ -69,7 +69,25 @@ public abstract class Util {
             quantity = Optional.ofNullable(prop.getProperty(sku));
             input.close();
         } catch (IOException ex) {
-        	System.out.println("Exception in the function 'getShortName()'."); 
+        	System.out.println("Exception in the function 'quantityToSplit()'."); 
+            ex.printStackTrace();
+        }
+		
+		if (quantity.isEmpty()) {
+			return null;
+		}
+		return quantity.get();
+	}
+	
+	public static String quantityToSplitByProduct(String model) {
+		Optional<String> quantity = Optional.empty();
+		try (InputStream input = new FileInputStream("splitByModel.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            quantity = Optional.ofNullable(prop.getProperty(model));
+            input.close();
+        } catch (IOException ex) {
+        	System.out.println("Exception in the function 'quantityToSplitByProduct()'."); 
             ex.printStackTrace();
         }
 		

@@ -40,6 +40,7 @@ public class OrderProcessor {
 		for (Order order : orders)
 			for (Product item : order.getItens()) {
 				item.setDispach("red");
+				item.setShortName(item.getName());
 			}
 		return orders;
 	}
@@ -123,7 +124,7 @@ public class OrderProcessor {
 			
 			if (order.isRedLabel()) {
 				
-				var maxQtdToSplitStr =  Optional.ofNullable(Util.quantityToSplit(order.getItens().get(0).getSku()));
+				var maxQtdToSplitStr = Optional.ofNullable(getmaxQtdToSplit(order));
 				
 				if (maxQtdToSplitStr.isPresent()) {
 					
@@ -142,7 +143,7 @@ public class OrderProcessor {
 						var shortName = order.getItens().get(0).getShortName();
 						
 						var brandModel = "";
-						if (order.hasQtdOnShortName(0)) {
+						if (order.getItens().get(0).hasQtdOnShortName()) {
 							brandModel =  String.format("%s %s", shortName.split(" ")[1], shortName.split(" ")[2]);
 						} else {
 							brandModel =  String.format("%s %s", shortName.split(" ")[0], shortName.split(" ")[1]);
@@ -177,5 +178,15 @@ public class OrderProcessor {
 			}
 		}
 		return newOrders;
+	}
+
+	private static String getmaxQtdToSplit(Order order) {
+		var sku = order.getItens().get(0).getSku();
+		if (sku != null) {
+			return Util.quantityToSplit(sku);
+		} 
+		else {
+			return Util.quantityToSplitByProduct(order.getItens().get(0).getModel());
+		}
 	}
 }
