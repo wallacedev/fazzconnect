@@ -151,11 +151,19 @@ public class ConectApp {
 	private static void convertEbay() throws Exception {
 		EbayService ebayService = new EbayService(workDirectory);
 		
-		ArrayList <Order> ebayOrders = ebayService.importOrdersFromFileToMemory();
+		ebayService.importOrdersFromFileToMemory();
 		
-		ebayService.processOrders();
+		System.out.println("Use new name format? (y/n)");
+		Scanner scanner = new Scanner(System.in);
+		var option = scanner.nextLine();
 		
-		ebayService.createAnpostFile(ebayOrders, "eb");
+		if (option.toLowerCase().equals("y")) {
+			ebayService.newProcessOrders();
+		} else {
+			ebayService.processOrders();
+		}
+		
+		ebayService.createAnpostFile(ebayService.getImportedOrders(), "eb");
 		
 	}
 

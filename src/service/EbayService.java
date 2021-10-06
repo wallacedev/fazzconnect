@@ -34,6 +34,13 @@ public class EbayService implements BaseService {
 		importedOrders = OrderProcessor.setGenericDispatch(importedOrders);
 		importedOrders = OrderProcessor.setOldProductQuantity(importedOrders);
 	}
+	
+	public void newProcessOrders() {
+		importedOrders = OrderProcessor.setGenericDispatch(importedOrders);
+		importedOrders = OrderProcessor.setProductQuantity(importedOrders);
+		importedOrders = OrderProcessor.setCustomTariff(importedOrders);
+		importedOrders = OrderProcessor.split(importedOrders);
+	}
 
 	public void createAnpostFile(ArrayList<Order> orders, String marketPlace) {
 		AnPostImporter importer = new AnPostImporter();
