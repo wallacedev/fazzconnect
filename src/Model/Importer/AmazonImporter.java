@@ -74,7 +74,7 @@ public class AmazonImporter {
 				
 				//order.setProductName(fields[11]);
 				
-				//order.setQuantityPurchased(fields[12]);
+				order.setQuantityPurchased(Integer.parseInt(fields[12]));
 				
 				//order.setQuantityShipped(fields[13]);
 				

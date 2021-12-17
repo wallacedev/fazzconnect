@@ -98,11 +98,10 @@ private ArrayList<Order> getOrders(ArrayList<String> lines) throws Exception {
 			
 			Product product = new Product();
 			product.setPruductId(sanitize(fields[22]));
-
-			var fullName = fields[23];
-			var shortName = fields[24]; 
 			
-			product.setName(getProductName(shortName, fullName));
+			product.setName(fields[23]);
+			
+			product.setShortName(fields[24]);
 						
 			product.setQuantity(Integer.valueOf(sanitize(fields[26])));
 			
