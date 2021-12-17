@@ -21,18 +21,28 @@ public class EbayUploadConverter implements BaseUploadConverter{
 			String SEPARATOR = ",";
 	
 			// Writing file title
+			//Shipping Status	Order Number	Item Number	Item Title	Custom Label	Transaction ID	Shipping Carrier Used	Tracking Number
+			
 			StringBuffer title = new StringBuffer();
-			title.append("Action(SiteID=UK|Country=GB|Currency=GBP|Version=941|CC=ISO-8859-1)");
+			
+			title.append("#INFO");
+			title.append("\n");
+			
+			title.append("Shipping Status");
 			title.append(SEPARATOR);
-			title.append("ItemID");
+			title.append("Order Number");
+			title.append(SEPARATOR);
+			title.append("Item Number");
+			title.append(SEPARATOR);
+			title.append("Item Title");
+			title.append(SEPARATOR);
+			title.append("Custom Label");
 			title.append(SEPARATOR);
 			title.append("TransactionID");
 			title.append(SEPARATOR);
-			title.append("ShippingStatus");
+			title.append("Shipping Carrier Used");
 			title.append(SEPARATOR);
-			title.append("ShippingCarrierUsed");
-			title.append(SEPARATOR);
-			title.append("ShipmentTrackingNumber");
+			title.append("Tracking Number");
 			title.append("\n");
 			
 			StringBuffer content = new StringBuffer();
@@ -40,16 +50,27 @@ public class EbayUploadConverter implements BaseUploadConverter{
 			for (Order order : ebayOrders) {
 				
 				if (!getTrackNumbers(order.getOrderId(), ebayTrackNumbers).isEmpty()) {
-					content.append("Status");
-					content.append(SEPARATOR);
-					content.append(order.getItens().get(0).getPruductId());
-					content.append(SEPARATOR);
-					content.append(order.getIdTransaction());
-					content.append(SEPARATOR);
 					content.append("1");
 					content.append(SEPARATOR);
+					
+					content.append(order.getOrderId());
+					content.append(SEPARATOR);
+					
+					content.append(order.getItens().get(0).getPruductId());
+					content.append(SEPARATOR);
+					
+					content.append(String.format("\"%s\"", order.getItens().get(0).getName()));
+					content.append(SEPARATOR);
+					
+					content.append(order.getItens().get(0).getShortName());
+					content.append(SEPARATOR);
+					
+					content.append(order.getIdTransaction());
+					content.append(SEPARATOR);
+					
 					content.append(ReportObject.getEbayCarrier());
 					content.append(SEPARATOR);
+					
 					content.append(getTrackNumbers(order.getOrderId(), ebayTrackNumbers));
 					content.append("\n");	
 				}

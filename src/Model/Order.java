@@ -13,7 +13,7 @@ public class Order {
 	private String buyerPhoneNumber;
 	private String sku;
 	private String productName;
-	private String quantityPurchased;
+	private int quantityPurchased;
 	private String quantityShipped;
 	private String quantityToShip;
 	private String recipientName;
@@ -104,5 +104,4 @@ public class Order {
 		order.itens = itens;
 	    return order;
 	}
-	
 }
