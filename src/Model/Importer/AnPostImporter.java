@@ -3,6 +3,7 @@ package Model.Importer;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import Model.Order;
 import Model.Product;
@@ -98,7 +99,7 @@ public class AnPostImporter {
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_PART_NO
-					sb.append(item.getPruductId());
+					sb.append(UUID.randomUUID().toString());
 					sb.append(SEPARATOR);
 	
 					// CONTENTS_ITEM_DESCRIPTION
