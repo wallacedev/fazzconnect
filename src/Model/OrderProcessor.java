@@ -124,12 +124,15 @@ public class OrderProcessor {
 					
 					var maxQtdToSplit = Integer.parseInt(maxQtdToSplitStr.get());
 					var qtdToSend = order.getItens().get(0).getQuantity();
+					var model = order.getItens().get(0).getModel().toLowerCase();
 					var qtdLeft = qtdToSend;
 					var qtsMax = maxQtdToSplit;
 					var labelAmount = 0;
 					
 					if (qtdToSend > qtsMax) {
-						if (order.getShipCountry().toLowerCase().equals("uk") || order.getShipCountry().toLowerCase().equals("gb"))  {
+						if (order.getShipCountry().toLowerCase().equals("uk") || order.getShipCountry().toLowerCase().equals("gb") 
+							//	|| (qtdToSend > 2 && (model.equals("60-tab") || model.equals("salt")))
+						){
 							order.getItens().get(0).setDispach("blue");
 							newOrders.add(order);
 						} else {
